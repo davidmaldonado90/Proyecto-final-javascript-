@@ -1,0 +1,824 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+/*media queries desktop*/
+
+@media (min-width: 1024px){
+
+body{
+    width: 100%;
+    height: 250vh;
+    background-color: #e7e2cc;
+}
+.gridproductos{
+    width: 100%;
+    height: 250vh;
+}
+
+.bodycompra{
+    width: 100%;
+    height: 250vh;
+}
+
+.imagenlogo{
+    position: absolute;
+    margin: 5px 5px;  
+    width: 90px;
+    height: 90px;
+}
+nav{
+    background-color:#e7e2cc;
+    padding: 15px;
+}
+
+ul{
+    border-radius: 20px;
+    background-color: #00555d;
+}
+li{
+    background-color: #00555d ;
+    padding: 5px;
+    margin: 10px;
+    list-style: none;
+    text-align: right;
+}
+
+li a{
+    text-decoration: none;
+    margin: 10px;
+    color: #e7e2cc;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+a:hover{
+    background-color: #e7e2cc;
+    color: #00555d;
+}
+
+#bienvenida{
+    margin-top: 5px;
+    background-image: url(../imagenes/salmon-salvaje.jpg);
+    background-size: cover ;
+    background-position: center;
+}
+
+h1{    
+    animation-name: animacion1;
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+@keyframes animacion1{
+    from{
+        transform: translatex(-1000px);
+    }
+    to{
+        transform: translatex(0);
+    }
+}
+
+#bienvenida h1{
+    padding: 5px;
+    color: #e7e2cc;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: right ;
+}
+
+#bienvenida img{
+    border-radius: 30px;
+    width: 25vw;
+    height: 35vh;
+}
+
+#presentacion{
+    padding: 25px;
+    color: #e7e2cc;
+    text-align: left;
+    font-family: sans-serif ;
+    font-size: 20px;
+    background-image: url(../imagenes/mejillones.JPG);
+    background-size: cover;
+    background-position: center;
+}
+
+.mercaderia{
+    padding: 10px;
+    background-color: #00555d;
+    color: #e7e2cc;
+    text-align: center;
+}
+
+#destacado img{
+    margin: 10px;
+    border-radius: 30px;
+    width: 20vw;
+    height: 25vh;
+}
+
+#pago{
+    margin: 10px;
+}
+
+#pago img{
+    width: auto;
+    height: auto;
+}
+
+#pago h2{
+    padding: 30px;
+    margin: 25px;
+    color: #00555d;
+    font-family: sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+hr{
+    border: solid 3px #00555d;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.boxfooter{
+    background-color: #e7e2cc;
+    color: #00555d; 
+    font-family: sans-serif;
+    font-size: 20px;
+}
+#mapa{
+   padding: 5px;
+}
+#redes{
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+}
+#redes a{
+    color:#00555d;
+}
+#contacto{
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+}
+
+#contacto a{
+    color: #00555d;
+}
+
+#copy{
+    text-align: left;
+    font-size: 15px;
+    margin-left: 10px;
+}
+.image{
+    width: 20vw;
+    height: 30vh;
+}
+/*seccion productos*/
+
+.titulo{
+    margin: 50px;
+    padding: 8px;
+    text-align: center;
+    color: #e7e2cc;
+    background-color: #00555d;
+    border: #e7e2cc 2px solid;
+    font-family: sans-serif;
+    font-size: 25px;
+    border-radius: 30px;
+}
+
+main.mainproductos img{
+    display: none;
+}
+
+.mainproductos div h2{
+    font-family: sans-serif;
+    font-size: 25px;
+    color: #e7e2cc;
+    background-color: #00555d;
+    text-align: center;
+    padding: 5px;
+    margin: 55px;
+    border-radius: 150px 150px 60px 50px;
+}
+
+#fresco{
+    margin-left: 200px;
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    border: solid 4px #00555d;
+    background-image: url(../imagenes/pescado-fresco.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#congelado{
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    border: solid 4px #00555d;
+    background-image: url(../imagenes/pescado-congelado.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#rebozado{
+    margin-left: 200px;
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    border: solid 4px #00555d;
+    background-image: url(../imagenes/pescado-rebozado.jpg);
+    background-size: cover;
+    background-position: center;    
+}
+
+#conserva{  
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    border: solid 4px #00555d;
+    background-image: url(../imagenes/conservas.jpg);
+    background-size: cover;
+    background-position: center;
+}
+/*seccion como comprar*/
+
+.titulocompra{
+    text-align: center;
+    background-color: #00555d;
+    border-radius: 30px;
+    color: #e7e2cc;
+    margin-left: 10px;
+}
+.compra{
+    align-items: center;
+}
+
+.boxcompra{
+    margin: 20px;
+    border: #00555d 2px solid;
+    background-color: #e7e2cc;
+    color: #00555d;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+#primero{    
+    align-content: center;
+    justify-self: end;  
+    transition: height 2s;  
+}
+#primero:hover{
+    height: 200px;
+}
+
+#tercero{
+    justify-self: end;
+}
+
+#segundo{
+    justify-self:left ;
+}
+
+#cuarto{
+    justify-self:left ;
+}
+
+/*grid*/
+
+.gridareas{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "menu" 
+    "navegacion"
+    "pie";
+    grid-template-columns: 100%;
+    grid-template-rows: 0px 5% 75% 20%;
+    grid-row-gap: 10px;
+} 
+
+main{
+    display: grid;
+    grid-template-areas:
+    "bienvenida"
+    "presentacion" 
+    "destacados"
+    "pago";
+    grid-template-columns: 100%;
+    grid-template-rows: 35% 30% 20% 15%;
+} 
+
+footer{
+    display: grid;
+    grid-template-areas: 
+    "redes    mapa"
+    "contacto mapa"
+    "copy     mapa";
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 45% 45% 10%;
+}
+
+.gridproductos{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "menu" 
+    "navegacion"
+    "pie";
+    grid-template-columns: 100%;
+    grid-template-rows: 0% 5% 75% 20%;
+    grid-row-gap: 10px;
+}
+
+#grid2{
+    display: grid;
+    grid-template-areas:
+    "titulo titulo"
+    "fresco congelado"
+    "rebozado conserva";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 12% 44% 44%;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+.bodycompra{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "menu" 
+    "navegacion"
+    "pie";
+    grid-template-columns: 100%;
+    grid-template-rows: 0% 5% 75% 20%;
+    grid-row-gap: 10px;
+}
+.compra{
+    display: grid;
+    grid-template-areas: 
+    "titulo"
+    "primero" 
+    "segundo"
+    "tercero"
+    "cuarto";
+    grid-template-columns: 100%;
+    grid-template-rows: 4% 24% 24% 24% 24%;
+}
+
+/*Areas*/
+
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: menu;
+}
+
+main{
+    grid-area: navegacion;
+}
+
+footer{
+    grid-area: pie;
+}
+
+#bienvenida{
+    grid-area: bienvenida;
+}
+#presentacion{
+    grid-area: presentacion;
+}
+#destacados{
+    grid-area: destacados;
+}
+#pago{
+    grid-area: pago;
+}
+
+div#redes{
+    grid-area: redes;
+}
+
+div#contacto{
+    grid-area: contacto;
+}
+div#mapa{
+    grid-area: mapa;    
+}
+div#copy{
+    grid-area: copy;    
+}
+#titulo{
+    grid-area: titulo;
+}
+#fresco{
+    grid-area: fresco;
+}
+#congelado{
+    grid-area: congelado;
+}
+#rebozado{
+    grid-area: rebozado;
+}
+
+#conserva{
+    grid-area: conserva;
+}
+
+.titulocompra{
+    grid-area: titulo;
+}
+#primero{
+    grid-area: primero;
+} 
+#segundo{
+    grid-area: segundo;
+}
+#tercero{
+    grid-area: tercero;
+}
+#cuarto{
+    grid-area: cuarto;
+}
+/*flex*/
+
+.listaflex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: right;
+}
+
+.imagenesflex{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#destacado{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+#pago{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+}
+
+/*media queries mobile*/
+
+@media (max-width: 480px){
+
+body{
+    width: 100%;
+    height: 250vh;
+    background-color: #e7e2cc;
+}
+.gridproductos{
+    width: 100%;
+    height: 250vh;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagenlogo{  
+    position: absolute;
+    margin: 10px;
+    width: 90px;
+    height: 90px;
+}
+nav{
+    background-color:#e7e2cc;
+    padding: 10px;
+}
+
+ul{
+    border-radius: 20px;
+    background-color: #00555d;
+}
+li{
+    background-color: #00555d ;
+    list-style: none;
+    text-align: center;
+}
+
+li a{
+    text-decoration: none;
+    margin: 10px;
+    color: #e7e2cc;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+#bienvenida{
+    background-image: url(../imagenes/salmon-salvaje.jpg);
+    background-size: cover ;
+    background-position:left ;
+}
+
+#bienvenida h1{
+    padding: 25px;
+    color: #116168;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#presentacion{
+    padding: 30px;
+    color: #e7e2cc;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 20px;
+    background-image: url(../imagenes/mejillones.JPG);
+    background-size: cover;
+    background-position: initial;
+}
+
+.mercaderia{
+    padding: 10px;
+    color: #e7e2cc;
+    font-family: sans-serif;
+    font-size: 15px;
+    text-align: left;
+    background-image: url(../imagenes/destacado2.jpg);
+    background-size: cover;
+    background-position: right;
+}
+
+#destacado img{
+    display: none;
+    margin: 10px;
+    border-radius: 30px;
+    width: 20vw;
+    height: 25vh;
+}
+#pago{
+    background-image: url(../imagenes/pesca.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#pago img{
+    margin: 10px;
+    width: 300px;
+    height: 150px;
+}
+#pago h2{
+    margin: 5px;
+    color: #e7e2cc;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: left;
+}
+hr{
+    display: none;
+    border: solid 3px #00555d;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.boxfooter{
+    margin: 10px;
+    background-color: #e7e2cc;
+    color: #00555d; 
+    font-family: sans-serif;
+    font-size: 15px;
+}
+#mapa{
+   padding: 5px;
+}
+#redes{
+    text-align: left;
+}
+#redes a{
+    color:#00555d;
+}
+#contacto{
+    text-align: left;
+}
+
+#contacto a{
+    color: #00555d;
+}
+
+#copy{
+    text-align: left;
+    font-size: 15px;
+}
+
+#mapa{
+    display: none;
+}
+.image{
+    width: 20vw;
+    height: 30vh;
+}
+/*seccion productos*/
+
+.menu{
+    padding: 20px;
+}
+
+#titulo{
+    text-align: center;
+    color: #00555d;
+    background-color: #e7e2cc;
+    font-family: sans-serif;
+    font-size: 15px;
+    border: #00555d 2px solid;
+    border-radius: 20px;
+}
+
+.fresco{
+    width: 100%;
+    background-image: url(../imagenes/pescado-fresco.jpg);
+    background-size: cover;
+}
+
+.congelado{
+    width: 100%;
+    background-image: url(../imagenes/pescado-congelado.jpg);
+    background-size: cover;
+}
+
+.rebozado{
+    width: 100%;
+    background-image: url(../imagenes/pescado-rebozado.jpg);
+    background-size: cover;
+}
+
+.conservas{
+    width: 100%;
+    background-image: url(../imagenes/pesca.jpg);
+    background-size: cover;
+}
+
+
+/*grid*/
+
+.gridareas{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "menu" 
+    "navegacion"
+    "pie";
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 2% 83% 10%;
+    grid-row-gap: 10px;
+} 
+
+main{
+    display: grid;
+    grid-template-areas:
+    "bienvenida"
+    "presentacion" 
+    "destacados"
+    "pago";
+    grid-template-columns: 100%;
+    grid-template-rows: 35% 30% 20% 15%;
+} 
+
+footer{
+    display: grid;
+    grid-template-areas: 
+    "redes   "
+    "contacto "
+    "copy     ";
+    grid-template-columns: 100%;
+    grid-template-rows: 45% 45% 10%;
+}
+
+.gridproductos{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "menu" 
+    "navegacion"
+    "pie";
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 5% 80% 10%;
+}
+
+#grid2{
+    display: grid;
+    grid-template-areas:
+    "titulo"
+    "fresco"
+    "congelado" 
+    "rebozado" 
+    "conserva";
+    grid-template-columns: 100%;
+    grid-template-rows: 2% 24% 24% 24% 24%;
+    grid-row-gap: 5px;
+}
+/*Areas*/
+
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: menu;
+}
+
+main{
+    grid-area: navegacion;
+}
+
+footer{
+    grid-area: pie;
+}
+
+#bienvenida{
+    grid-area: bienvenida;
+}
+#presentacion{
+    grid-area: presentacion;
+}
+#destacados{
+    grid-area: destacados;
+}
+#pago{
+    grid-area: pago;
+}
+
+div#redes{
+    grid-area: redes;
+}
+
+div#contacto{
+    grid-area: contacto;
+}
+div#mapa{
+    grid-area: mapa;    
+}
+div#copy{
+    grid-area: copy;    
+}
+#titulo{
+    grid-area: titulo;
+}
+#fresco{
+    grid-area: fresco;
+}
+#congelado{
+    grid-area: congelado;
+}
+#rebozado{
+    grid-area: rebozado;
+}
+
+#conserva{
+    grid-area: conserva;
+}
+
+/*flex*/
+
+.listaflex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center ;
+}
+
+.imagenesflex{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#destacado{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+#pago{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+}
