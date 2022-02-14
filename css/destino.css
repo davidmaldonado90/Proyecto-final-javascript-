@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+/*media queries desktop*/
+@media (min-width: 1024px) {
+  body {
+    width: 100%;
+    height: 250vh;
+    background-color: #e7e2cc; }
+  .imagenlogo {
+    position: absolute;
+    margin: 5px 5px;
+    width: 90px;
+    height: 90px; }
+  nav {
+    background-color: #e7e2cc;
+    padding: 15px; }
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: right;
+    border-radius: 20px;
+    background-color: #00555d; }
+    ul li {
+      list-style: none;
+      padding: 5px;
+      margin: 10px;
+      background-color: #00555d; }
+      ul li a {
+        text-decoration: none;
+        list-style: none;
+        color: #e7e2cc;
+        font-size: 20px;
+        font-family: sans-serif;
+        margin: 10px; }
+        ul li a:hover {
+          background-color: #e7e2cc;
+          color: #00555d; }
+  .compra {
+    background-image: url(../imagenes/logo.png);
+    background-size: cover 50%;
+    background-position: center;
+    background-repeat: no-repeat; }
+  h1 {
+    width: 300px;
+    height: 50px;
+    padding: 5px;
+    color: #e7e2cc;
+    background-color: #00555d;
+    text-align: center; }
+  .boxcompra {
+    margin: 40px;
+    width: 400px;
+    height: 250px;
+    padding: 30px;
+    color: #00555d;
+    font-size: 20px;
+    font-family: sans-serif; }
+    .boxcompra h2 {
+      text-align: center;
+      padding: 30px; }
+      .boxcompra h2 p {
+        text-align: center;
+        margin: 5px;
+        padding: 10px; }
+  .bodycompra {
+    display: grid;
+    grid-template-areas: "cabeza" "navegacion" "contenido" "pie";
+    grid-template-columns: 100%;
+    grid-template-rows: 0% 5% 80% 15%;
+    grid-row-gap: 10px; }
+  .compra {
+    display: grid;
+    grid-template-areas: "titulo" "primero" "segundo" "tercero" "cuarto";
+    grid-template-columns: 100%;
+    grid-template-rows: 4% 24% 24% 24% 24%;
+    grid-row-gap: 4px; }
+  footer {
+    display: grid;
+    grid-template-areas: "redes    mapa" "contacto mapa" "copy     mapa";
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 45% 45% 10%; }
+  header {
+    grid-area: cabeza; }
+  nav {
+    grid-area: navegacion; }
+  main {
+    grid-area: contenido; }
+  footer {
+    grid-area: pie; }
+  .titulocompra {
+    grid-area: titulo;
+    justify-self: center; }
+  .primero {
+    grid-area: primero;
+    justify-self: right; }
+  .segundo {
+    grid-area: segundo;
+    justify-self: left; }
+  .tercero {
+    grid-area: tercero;
+    justify-self: right; }
+  .cuarto {
+    grid-area: cuarto;
+    justify-self: left; }
+  .redes {
+    grid-area: redes; }
+  .contacto {
+    grid-area: contacto; }
+  .mapa {
+    grid-area: mapa; }
+  .copy {
+    grid-area: copy; } }
