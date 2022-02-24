@@ -4,61 +4,50 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <title>Peshku  Tienda de Mar</title>
         <link rel="icon" href="imagenes/logo.png">
-        <link rel="stylesheet" href="./estilos/styles.css">
+        <link rel="stylesheet" href="./fontawesome-free-6.0.0-web/css/all.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="./css/destino.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body class="gridareas">
+    <body class="container">
         <header class="border">
-            <img class="imagenlogo" src="imagenes/logo.png" alt="Logo">
-        </header>    
-        <nav class="border">
-            <ul class="listaflex">
-                <li><a href="./secciones/inicio.html">Inicio</a></li>
-                <li><a href="./secciones/productos.html">Productos</a></li>
-                <li><a href="./secciones/como-comprar.html">Como Comprar</a></li>
-                <li><a href="./secciones/contacto.html">Contacto</a></li>
-            </ul>
-        </nav>    
+                <a href="./secciones/inicio.html"><img class="imagenlogo" src="imagenes/logo.png" alt="Logo"></a>
+                <nav>
+                    <ul>
+                        <li><a href="./secciones/inicio.html">Inicio</a></li>
+                        <li><a href="./secciones/productos.html">Productos</a></li>
+                        <li><a href="./secciones/como-comprar.html">Como Comprar</a></li>
+                        <li><a href="./secciones/contacto.html">Contacto</a></li>
+                        <li><a href="./secciones/login.html" class="btn">Login</a></li>
+                    </ul>
+                </nav>    
+        </header>                       
         <main class="border">
-                <section id="bienvenida">
-                    <h1>Bienvenido a Nuestra Tienda</h1> 
-                    <!--carrousel-->
+                <section class="bienvenida">
+                    <h1>Bienvenido a Nuestra Tienda</h1>
                 </section>  
-                <section id="presentacion">
-                    <h2 class="pres">Pescados y Mariscos Nacionales e Importados</h2>
-                    <p>Ofrecemos una amplia variedad de productos, con la mejor calidad del mercado.</p>
+                <section class="presentacion">
+                    <h2>Pescados y Mariscos Nacionales e Importados <br>
+                        Ofrecemos una amplia variedad de productos, con la mejor calidad del mercado.</h2>
                 </section>
-                <section class="mercaderia">
-                    <h2>Productos Destacados</h2>
-                    <div id="destacado">                    
-                        <img src="imagenes/destacado1.jpg" alt="Langostino Rebozado">
-                        <img src="imagenes/destacado2.jpg" alt="Salmon Ahumado">
-                        <img src="imagenes/imagen-carrousel2.jpg" alt="filet de merluza">
-                </div>                  
-                </section> 
-                <section id="pago">
+                <section class="pago">
                     <h2>Formas de Pago</h2>
-                    <img src="imagenes/pago.jpg" alt="formaspago">
-                <!--iconos de medios de pago-->
                 </section>
-                <hr>
         </main>
-        <footer class="border" id="pie">
-            <div id="redes" class="boxfooter">
-                <h4>Seguinos en nuestras redes</h4>
-                <!--iconos de las redes sociales-->                
-                <a href="https://instagram.com/peshkumdp?utm_medium=copy_link" target="_blank">Instagram</a>
-                <a href="https://facebook.com/peshku-100445365145226/" target="_blank">Facebook</a>
+        <footer class="pie">
+            <div class="redes boxfooter">
+                <h4>Seguinos en nuestras redes</h4>               
+                <a href="https://instagram.com/peshkumdp?utm_medium=copy_link" target="_blank"><i class="fa-brands fa-2x fa-instagram"></i></a>
+                <a href="https://facebook.com/peshku-100445365145226/" target="_blank"><i class="fa-brands fa-2x fa-facebook-f"></i></a>
             </div>
-            <div id="contacto" class="boxfooter">
+            <div class="contacto boxfooter">
                 <h4>Contactanos</h4>
-                <a href="https://wa.me/2235372182" target="_blank">Whatsapp</a>
-                <a href="mailto:peshkumdp@gmail.com" target="_blank">Mail</a>
+                <a href="https://wa.me/2235372182" target="_blank"><i class="fa-brands fa-2x fa-whatsapp"></i></a>
+                <a href="mailto:peshkumdp@gmail.com" target="_blank"><i class="fa-solid fa-2x fa-envelope"></i></a>
             </div>
-            <div id="mapa" class="boxfooter">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d100584.81594270153!2d-57.63386826274978!3d-38.017356342247965!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d94d19d34209%3A0xdd9670804bfed126!2sMar%20del%20Plata%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sus!4v1640659264940!5m2!1ses!2sus" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div id="copy" class="boxfooter">
+            <div class="copy boxfooter">
                <p> Copyright Peshku2020 Todos los Derechos Reservados</p>
             </div>
         </footer>

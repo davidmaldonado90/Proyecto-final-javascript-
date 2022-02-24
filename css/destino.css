@@ -1,116 +1,174 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box; }
 
-/*media queries desktop*/
-@media (min-width: 1024px) {
-  body {
-    width: 100%;
-    height: 250vh;
-    background-color: #e7e2cc; }
-  .imagenlogo {
-    position: absolute;
-    margin: 5px 5px;
-    width: 90px;
-    height: 90px; }
-  nav {
-    background-color: #e7e2cc;
-    padding: 15px; }
-  ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: right;
-    border-radius: 20px;
-    background-color: #00555d; }
-    ul li {
+body {
+  width: 100%;
+  height: 200vh; }
+
+.imagenlogo {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  margin-left: 5px; }
+
+nav {
+  background-color: #e7e2cc;
+  padding: 15px; }
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: right;
+  border-radius: 20px;
+  background-color: #00555d; }
+  ul li {
+    list-style: none;
+    padding: 10px;
+    margin: 10px; }
+    ul li a {
+      text-decoration: none;
       list-style: none;
-      padding: 5px;
-      margin: 10px;
-      background-color: #00555d; }
-      ul li a {
-        text-decoration: none;
-        list-style: none;
-        color: #e7e2cc;
-        font-size: 20px;
-        font-family: sans-serif;
-        margin: 10px; }
-        ul li a:hover {
-          background-color: #e7e2cc;
-          color: #00555d; }
-  .compra {
-    background-image: url(../imagenes/logo.png);
-    background-size: cover 50%;
-    background-position: center;
-    background-repeat: no-repeat; }
-  h1 {
-    width: 300px;
-    height: 50px;
+      color: #e7e2cc;
+      font-size: 20px;
+      font-family: sans-serif;
+      margin: 10px; }
+      ul li a:hover {
+        padding: 5px;
+        border-radius: 50px;
+        background-color: #e7e2cc;
+        color: #00555d; }
+
+.btn {
+  padding: 5px;
+  background-color: #e7e2cc;
+  border-radius: 50px;
+  color: #00555d; }
+  .btn:hover {
+    background-color: #00555d;
+    color: #e7e2cc; }
+
+.container {
+  display: grid;
+  grid-template-areas: "header" "navegacion" "pie";
+  grid-template-columns: 100%;
+  grid-template-rows: 6% 84% 10%; }
+
+header {
+  grid-area: header; }
+
+main {
+  grid-area: navegacion; }
+
+footer {
+  grid-area: pie; }
+
+main {
+  display: grid;
+  grid-template-areas: "bienvenida" "presentacion"  "pago";
+  grid-template-columns: 100%;
+  grid-template-rows: 45% 45% 10%; }
+
+.bienvenida {
+  grid-area: bienvenida; }
+
+.presentacion {
+  grid-area: presentacion; }
+
+.pago {
+  grid-area: pago; }
+
+footer {
+  display: grid;
+  grid-template-areas: "redes contacto" "copy   copy";
+  grid-template-columns: 50%;
+  grid-template-rows: 50% 50%;
+  grid-row-gap: 20px; }
+
+.redes {
+  grid-area: redes; }
+
+.contacto {
+  grid-area: contacto; }
+
+.copy {
+  grid-area: copy; }
+
+.bienvenida {
+  background-image: url(../imagenes/salmon-salvaje.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .bienvenida h1 {
+    padding: 5px;
+    color: #00555d;
+    font-size: 50px;
+    font-family: sans-serif;
+    text-align: right;
+    text-shadow: 2px 2px #e7e2cc;
+    animation-name: animacion1;
+    animation-iteration-count: 1;
+    animation-duration: 5s;
+    animation-delay: 0s; }
+
+@keyframes animacion1 {
+  from {
+    transform: translatey(-1000px); }
+  to {
+    transform: translatey(0); } }
+
+.presentacion {
+  background-image: url(../imagenes/mejillones.JPG);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .presentacion h2 {
     padding: 5px;
     color: #e7e2cc;
-    background-color: #00555d;
-    text-align: center; }
-  .boxcompra {
-    margin: 40px;
-    width: 400px;
-    height: 250px;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: right;
+    text-shadow: 2px 2px #00555d; }
+
+.pago {
+  margin: 10px; }
+  .pago h2 {
     padding: 30px;
+    margin: 25px;
     color: #00555d;
-    font-size: 20px;
-    font-family: sans-serif; }
-    .boxcompra h2 {
-      text-align: center;
-      padding: 30px; }
-      .boxcompra h2 p {
-        text-align: center;
-        margin: 5px;
-        padding: 10px; }
-  .bodycompra {
-    display: grid;
-    grid-template-areas: "cabeza" "navegacion" "contenido" "pie";
-    grid-template-columns: 100%;
-    grid-template-rows: 0% 5% 80% 15%;
-    grid-row-gap: 10px; }
-  .compra {
-    display: grid;
-    grid-template-areas: "titulo" "primero" "segundo" "tercero" "cuarto";
-    grid-template-columns: 100%;
-    grid-template-rows: 4% 24% 24% 24% 24%;
-    grid-row-gap: 4px; }
-  footer {
-    display: grid;
-    grid-template-areas: "redes    mapa" "contacto mapa" "copy     mapa";
-    grid-template-columns: 75% 25%;
-    grid-template-rows: 45% 45% 10%; }
-  header {
-    grid-area: cabeza; }
-  nav {
-    grid-area: navegacion; }
-  main {
-    grid-area: contenido; }
-  footer {
-    grid-area: pie; }
-  .titulocompra {
-    grid-area: titulo;
-    justify-self: center; }
-  .primero {
-    grid-area: primero;
-    justify-self: right; }
-  .segundo {
-    grid-area: segundo;
-    justify-self: left; }
-  .tercero {
-    grid-area: tercero;
-    justify-self: right; }
-  .cuarto {
-    grid-area: cuarto;
-    justify-self: left; }
-  .redes {
-    grid-area: redes; }
-  .contacto {
-    grid-area: contacto; }
-  .mapa {
-    grid-area: mapa; }
-  .copy {
-    grid-area: copy; } }
+    font-family: sans-serif;
+    font-size: 30px;
+    text-align: center; }
+
+.pie {
+  background-color: #e7e2cc; }
+
+.boxfooter {
+  background-color: #e7e2cc;
+  color: #00555d;
+  font-family: sans-serif;
+  font-size: 20px; }
+
+i {
+  padding: 10px;
+  margin: 10px; }
+
+.redes {
+  text-align: left; }
+  .redes a {
+    color: #00555d; }
+
+.contacto {
+  text-align: center; }
+  .contacto a {
+    color: #00555d; }
+
+.copy {
+  text-align: left;
+  font-size: 15px; }

@@ -1,0 +1,57 @@
+$primarycolor: #e7e2cc;
+$secondarycolor: #00555d;
+
+footer{
+    display: grid;
+    grid-template-areas: 
+    "redes    mapa"
+    "contacto mapa"
+    "copy     mapa";
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 45% 45% 10%;
+}
+
+.redes{
+    grid-area: redes;
+}
+.contacto{
+    grid-area: contacto;
+}
+.mapa{
+    grid-area: mapa;
+}
+.copy{
+    grid-area: copy;
+}
+
+.boxfooter{
+    background-color: $primarycolor;
+    color: $secondarycolor; 
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.mapa{
+   padding: 5px;
+}
+.redes{
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+        a{
+            color: $secondarycolor;
+        }
+}
+.contacto{
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+        a{
+        color: $secondarycolor;
+        }
+}
+
+.copy{
+    text-align: left;
+    font-size: 15px;
+    margin-left: 10px;
+}

@@ -60,7 +60,7 @@ a:hover{
     color: #00555d;
 }
 
-#bienvenida{
+.bienvenida{
     margin-top: 5px;
     background-image: url(../imagenes/salmon-salvaje.jpg);
     background-size: cover ;
