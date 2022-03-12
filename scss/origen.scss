@@ -1,106 +1,288 @@
 @import "variables";
+@import "global";
+@import "mixin";
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body{
+header{
     width: 100%;
-    height: 200vh;
+    height: 13vh;
+    background-color: $claro; 
+    nav{
+        height: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;                
+        }@include responsive (md){
+            height: 100px;
+            nav{
+                background-color: $claro;
+                padding: 15px;
+            }
+    }
 }
 
 .imagenlogo{
-    position: absolute;
     width: 90px;
     height: 90px;
-    margin-left: 5px;
+    margin-left: 20px;
+    @include responsive (md){
+        position: absolute;
+        top: 0;
+        margin: 5px;
+        z-index: 10;
+    } 
 }
 
-nav{
-    background-color: $claro;
-    padding: 15px;
+.bar-btn{
+    font-size: 25px;
+    color: $verde;
+    margin-right: 20px;
+    cursor: pointer;
+    @include responsive (md){
+        display: none;
+    }
 }
-
-ul{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: right;
-    border-radius: 20px;
+.nav-menu{
+    position: fixed;
+    width: 100%;
+    height: 0vh;
+    top: 100px;
     background-color: $verde;
-        li{
-            list-style: none;
-            padding: 10px;
-            margin: 10px;
+    text-align: center;
+    transition: all .5s;
+    z-index: 9999;
+    li{
+        display: none;
+        line-height: 30px;
+        margin: 50px 0;
+        transition: all .5s;
+        a{
+            color: $claro;
+            border-radius: 20px;
+            font-size: $font + 5;
+        }                
+    }          
+    @include responsive (md){
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        position: relative;
+        margin-left: 5%;
+        height: 50px;
+        top: 4%;
+        padding: 15px;
+        transition: none;
+        border-radius: 20px;
+        z-index: 0;
+            li{
+                display: flex;
+                flex-direction: row;
+                transition: none;
+                padding: 5px;
+                margin: 10px;
                 a{
-                    text-decoration: none;
-                    list-style: none;
-                    color: $claro;
-                    font-size: 20px;
-                    font-family: sans-serif;
                     margin: 10px;
+                    font-size: $font;
                     &:hover{
-                        padding: 5px;
-                        border-radius: 50px;
+                        padding: 10px;
+                        border-radius: 15px;
                         background-color: $claro;
                         color: $verde;
-                    }
                 }
+            }
         }
+    }
 }
-
-.btn{
-    padding: 5px;
-    background-color: $claro;
-    border-radius: 50px;
-    color: $verde;
-        &:hover{
-            background-color: $verde;
-            color: $claro;
+#menu{
+    display: none;
+    &:checked ~ .nav-menu{
+        height: 100vh;
+        li{
+            display: block;
+        }
     }
 }
 
 .container{
-        display: grid;
-        grid-template-areas:
-        "header"
-        "navegacion"
-        "pie";
-        grid-template-columns: 100%;
-        grid-template-rows: 6% 84% 10%;
+    display: flex;
+    flex-direction: column;
 }
 
-header{
-    grid-area: header;
-}
-main{
-    grid-area: navegacion;
-}
-footer{
-    grid-area: pie;
-}
+.bienvenida{       
+    position: relative;
+    z-index: 1;
+    background-image: url(../imagenes/langostino.jpg);
+    background-attachment: fixed;
+    background-size: 180% 100%;
+    display: flex;
+    justify-content: center;
+    height: 95vh;          
+            h1{
+            margin-top: 30px;
+            padding: 5px;
+            color: $claro;
+            font-size: $font + 20;  
+            text-shadow: 2px 2px $verde;            
+            animation-name: animacion1;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-delay: 0s;
 
-main{
-    display: grid;
-    grid-template-areas:
-    "bienvenida"
-    "presentacion" 
-    "pago";
-    grid-template-columns: 100%;
-    grid-template-rows: 45% 45% 10%;
-} 
+            @keyframes animacion1{
+                from{
+                    transform: translatey(-300%);
+                    }
+                to{
+                    transform: translatey(0);
+                    }
+            }
+                    
+                }
+                .btn-inicio{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 15px;
+                    position: absolute;
+                    width: 170px;
+                    height: 40px;
+                    font-size: $font;
+                    top: 70%;
+                    left: 33%;
+                    text-transform: uppercase;
+                    font-weight: bolder;
+                    background-color: $claro;
+                    color: $verde;
+                    &:hover{
+                        color: $claro;
+                        background-color: $verde;
+                        }
+                    }@include responsive (md){
+                        background-size: cover;
+                        justify-content: left;
+                            h1{
+                                margin-left: 10px;
+                            }      
+                        }.btn-inicio{
+                            left: 40%;
+                        }
+            
+            
+            }
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    z-index: 100;
+    top: 105%;
+    left: 37%;
+    width: 200px;
+    height: 200px;
+    background-color: $claro;
+    border: solid 3px $claro;
+    border-radius: 15px;
+    opacity: .8;
+    img{
+        border-radius: 15px;
+    }
+    h2{
+        color: $verde;
+        padding-bottom: 5px;
+        text-align: center;
+        font-size: $font ;
+    }
+            animation-name: animacion2;
+            animation-iteration-count: 1;
+            animation-duration: 2s;
+            animation-delay: 2s;
 
-.bienvenida{
-    grid-area: bienvenida;
-}
+            @keyframes animacion2{
+                from{
+                    transform: translatex(-300%);
+                    }
+                to{
+                    transform: translatex(0);
+                
+            }
+        }
+        @include responsive (md){
+            top: 100%;
+            left: 32%;
+            width: 300px;
+            height: 300px;
+            h2{
+                font-size: $font+5;    
+            }
+            @include responsive (lg){
+                top: 100%;
+                left: 35%; 
+            }               
+        }
+    }
+
 .presentacion{
-    grid-area: presentacion;
-}
+        z-index: 2;
+        background-image: url(../imagenes/pulpo2.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+            .pres{
+                    margin-top: 40px;
+                    background-color: $claro;
+                    opacity: 0.6;
+            }
+                h2{
+                    text-transform: uppercase;
+                    padding: 5px;
+                    color: $verde;
+                    font-size: $font;
+                    text-shadow: 2px $verde;
+                } 
+        @include responsive (md){
+            h2{
+                font-size: $font +10;
+                display: flex;
+            }@include responsive (lg){
+                align-items:flex-end ;
+                .pres{
+                    margin-bottom: 20px;
+                }
+            
+        }
+        }
+    }
+
 .pago{
-    grid-area: pago;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    background-color: $claro;
+    height: 20vh;
+    h2{
+        color: $verde;
+        text-align: center;
+        padding-bottom: 20px;
 }
+
+ .boxpago{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+            .mpago{
+                width: 150px;            
+                }
+        }
+            img{
+                width: 50px;
+                height: 50px;          
+            }    
+}   
 
 footer{
     display: grid;
@@ -108,8 +290,7 @@ footer{
     "redes contacto"
     "copy   copy";
     grid-template-columns: 50%;
-    grid-template-rows: 50% 50% ;
-    grid-row-gap: 20px;
+    grid-template-rows: 78% 22%;
 }
 
 .redes{
@@ -122,93 +303,55 @@ footer{
     grid-area: copy;
 }
 
-.bienvenida{
-    background-image: url(../imagenes/salmon-salvaje.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-        h1{
-            padding: 5px;
-            color: $verde;
-            font-size: 50px;
-            font-family: sans-serif;
-            text-align: right ;   
-            text-shadow: 2px 2px $claro;            
-            animation-name: animacion1;
-            animation-iteration-count: 1;
-            animation-duration: 5s;
-            animation-delay: 0s;
-
-            @keyframes animacion1{
-                from{
-                    transform: translatey(-1000px);
-                    }
-                to{
-                    transform: translatey(0);
-                    }
-            }
-
-    }
-}
-
-.presentacion{
-    background-image: url(../imagenes/mejillones.JPG);
-    background-attachment: fixed;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-        h2{
-            padding: 5px;
-            color: $claro;
-            font-size: 30px;
-            font-family: sans-serif;
-            text-align: right ;   
-            text-shadow: 2px 2px $verde; 
-        }    
-}
-
-.pago{
-    margin: 10px;
-                h2{
-                    padding: 30px;
-                    margin: 25px;
-                    color: #00555d;
-                    font-family: sans-serif;
-                    font-size: 30px;
-                    text-align: center;
-                }
-            }        
-        
 .pie{
+    border-top: 2px solid $verde;
+    color: $verde;
     background-color: $claro;
-}
-.boxfooter{
-    background-color: $claro;
-    color: $verde; 
-    font-family: sans-serif;
-    font-size: 20px;
+    background-image: url(../imagenes/logo.png);
+    background-repeat: no-repeat;
+    background-size: 90px 90px;
+    background-position: center;
+    height: 30vh;
 }
 
 i{
     padding: 10px;
-    margin: 10px;
 }
 .redes{
-    text-align: left;
+    padding-top: 10px;
+    font-size: 25px;
+    text-align: center;    
         a{
             color: $verde;
+            &:hover{
+                padding: 5px;
+                border-radius: 30px;
+                background-color: $verde;
+                color: $claro;
+            }
+        }@include responsive (md){
+            margin-top: 20px;
         }
 }
 .contacto{
+    padding-top: 10px;
+    font-size: 25px;
     text-align: center;
         a{
-        color: $verde
+            color: $verde;
+            &:hover{
+                padding: 5px;
+                border-radius: 30px;
+                background-color: $verde;
+                color: $claro;
+            }
+            }@include responsive (md){
+                margin-top: 20px;
         }
 }
+
+
 .copy{
-    text-align: left;
-    font-size: 15px;
+    font-size: 20px;
+    text-align: center;
 }
