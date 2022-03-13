@@ -19,22 +19,23 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center; }
-  @media screen and (min-width: 778px) {
-    header {
-      height: 100px; }
-      header nav {
-        background-color: #e7e2cc;
-        padding: 15px; } }
 
 .imagenlogo {
   width: 90px;
   height: 90px;
   margin-left: 20px; }
-  @media screen and (min-width: 778px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .imagenlogo {
       position: absolute;
       top: 0;
       margin: 5px;
+      z-index: 10; } }
+  @media (min-width: 1024px) {
+    .imagenlogo {
+      position: absolute;
+      top: 5px;
+      width: 110px;
+      height: 110px;
       z-index: 10; } }
 
 .bar-btn {
@@ -42,7 +43,10 @@ header {
   color: #00555d;
   margin-right: 20px;
   cursor: pointer; }
-  @media screen and (min-width: 778px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .bar-btn {
+      display: none; } }
+  @media (min-width: 1024px) {
     .bar-btn {
       display: none; } }
 
@@ -64,7 +68,7 @@ header {
       color: #e7e2cc;
       border-radius: 20px;
       font-size: 25px; }
-  @media screen and (min-width: 778px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .nav-menu {
       display: flex;
       flex-direction: row;
@@ -86,7 +90,35 @@ header {
         margin: 10px; }
         .nav-menu li a {
           margin: 10px;
-          font-size: 20px; }
+          font-size: 30px; }
+          .nav-menu li a:hover {
+            padding: 10px;
+            border-radius: 15px;
+            background-color: #e7e2cc;
+            color: #00555d; } }
+  @media (min-width: 1024px) {
+    .nav-menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: right;
+      position: relative;
+      height: 50px;
+      top: 6%;
+      margin-left: 5%;
+      padding: 15px;
+      transition: none;
+      border-radius: 20px;
+      z-index: 0; }
+      .nav-menu li {
+        display: flex;
+        flex-direction: row;
+        transition: none;
+        padding: 5px;
+        margin: 10px; }
+        .nav-menu li a {
+          margin: 10px;
+          font-size: 30px; }
           .nav-menu li a:hover {
             padding: 10px;
             border-radius: 15px;
@@ -109,7 +141,8 @@ header {
   z-index: 1;
   background-image: url(../imagenes/langostino.jpg);
   background-attachment: fixed;
-  background-size: 180% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   height: 95vh; }
@@ -147,14 +180,22 @@ header {
     .bienvenida .btn-inicio:hover {
       color: #e7e2cc;
       background-color: #00555d; }
-  @media screen and (min-width: 778px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .bienvenida {
-      background-size: cover;
       justify-content: left; }
       .bienvenida h1 {
-        margin-left: 10px; } }
-  .bienvenida .btn-inicio {
-    left: 40%; }
+        margin-left: 15px;
+        font-size: 50px; }
+      .bienvenida .btn-inicio {
+        left: 45%; } }
+  @media (min-width: 1024px) {
+    .bienvenida {
+      justify-content: left; }
+      .bienvenida h1 {
+        font-size: 60px;
+        margin-left: 10px; }
+      .bienvenida .btn-inicio {
+        left: 43%; } }
 
 .card {
   display: flex;
@@ -163,7 +204,7 @@ header {
   position: absolute;
   z-index: 100;
   top: 105%;
-  left: 37%;
+  left: 30%;
   width: 200px;
   height: 200px;
   background-color: #e7e2cc;
@@ -187,18 +228,22 @@ header {
     transform: translatex(-300%); }
   to {
     transform: translatex(0); } }
-  @media screen and (min-width: 778px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .card {
       top: 100%;
-      left: 32%;
+      left: 38%;
       width: 300px;
       height: 300px; }
       .card h2 {
-        font-size: 25px; } }
-  @media screen and (min-width: 778px) and (min-width: 1024px) {
+        font-size: 30px; } }
+  @media (min-width: 1024px) {
     .card {
       top: 100%;
-      left: 35%; } }
+      left: 38%;
+      width: 300px;
+      height: 300px; }
+      .card h2 {
+        font-size: 35px; } }
 
 .presentacion {
   z-index: 2;
@@ -219,20 +264,17 @@ header {
     color: #00555d;
     font-size: 20px;
     text-shadow: 2px #00555d; }
-  @media screen and (min-width: 778px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .presentacion h2 {
-      font-size: 30px;
-      display: flex; } }
-
-@media screen and (min-width: 778px) and (min-width: 1024px) {
-  .presentacion {
-    align-items: flex-end; }
-    .presentacion .pres {
-      margin-bottom: 20px; } }
+      font-size: 35px; } }
+  @media (min-width: 1024px) {
+    .presentacion h2 {
+      font-size: 45px; } }
 
 .pago {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   padding-top: 10px;
   background-color: #e7e2cc;
   height: 20vh; }
@@ -240,6 +282,14 @@ header {
     color: #00555d;
     text-align: center;
     padding-bottom: 20px; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .pago {
+      justify-content: space-evenly; }
+      .pago h2 {
+        font-size: 30px; } }
+  @media (min-width: 1024px) {
+    .pago h2 {
+      font-size: 35px; } }
   .pago .boxpago {
     display: flex;
     flex-direction: row;
@@ -256,7 +306,7 @@ footer {
   grid-template-columns: 50%;
   grid-template-rows: 78% 22%; }
 
-.redes {
+.redes, .contacto {
   grid-area: redes; }
 
 .contacto {
@@ -271,43 +321,43 @@ footer {
   background-color: #e7e2cc;
   background-image: url(../imagenes/logo.png);
   background-repeat: no-repeat;
-  background-size: 90px 90px;
+  background-size: 110px 110px;
   background-position: center;
   height: 30vh; }
+  @media (min-width: 1024px) {
+    .pie {
+      background-size: 150px 150px; } }
 
 i {
   padding: 10px; }
 
-.redes {
+.redes, .contacto {
   padding-top: 10px;
   font-size: 25px;
   text-align: center; }
-  .redes a {
+  .redes a, .contacto a {
     color: #00555d; }
-    .redes a:hover {
+    .redes a:hover, .contacto a:hover {
       padding: 5px;
       border-radius: 30px;
       background-color: #00555d;
       color: #e7e2cc; }
-  @media screen and (min-width: 778px) {
-    .redes {
-      margin-top: 20px; } }
-
-.contacto {
-  padding-top: 10px;
-  font-size: 25px;
-  text-align: center; }
-  .contacto a {
-    color: #00555d; }
-    .contacto a:hover {
-      padding: 5px;
-      border-radius: 30px;
-      background-color: #00555d;
-      color: #e7e2cc; }
-  @media screen and (min-width: 778px) {
-    .contacto {
-      margin-top: 20px; } }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .redes, .contacto {
+      margin-top: 20px;
+      font-size: 30px; } }
+  @media (min-width: 1024px) {
+    .redes, .contacto {
+      margin-top: 20px;
+      font-size: 35px; } }
 
 .copy {
   font-size: 20px;
   text-align: center; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .copy {
+      font-size: 30px; } }
+  @media (min-width: 1024px) {
+    .copy {
+      margin-top: 10px;
+      font-size: 30px; } }

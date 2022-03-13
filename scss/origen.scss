@@ -12,37 +12,44 @@ header{
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;                
-        }@include responsive (md){
-            height: 100px;
-            nav{
-                background-color: $claro;
-                padding: 15px;
-            }
+        align-items: center;  
     }
-}
+}          
 
 .imagenlogo{
     width: 90px;
     height: 90px;
     margin-left: 20px;
-    @include responsive (md){
+    @include bp (md){
         position: absolute;
         top: 0;
         margin: 5px;
         z-index: 10;
-    } 
-}
+    }
+    @include bp (lg){
+        position: absolute;
+        top: 5px;
+        width: 110px;
+        height: 110px; 
+        z-index: 10;
+    }
+}  
+
 
 .bar-btn{
     font-size: 25px;
     color: $verde;
     margin-right: 20px;
     cursor: pointer;
-    @include responsive (md){
-        display: none;
+    @include bp (md){
+        display: none;    
+    }
+    @include bp (lg){
+        display: none; 
     }
 }
+
+
 .nav-menu{
     position: fixed;
     width: 100%;
@@ -63,7 +70,7 @@ header{
             font-size: $font + 5;
         }                
     }          
-    @include responsive (md){
+    @include bp (md){
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -84,7 +91,37 @@ header{
                 margin: 10px;
                 a{
                     margin: 10px;
-                    font-size: $font;
+                    font-size: $font +10;
+                    &:hover{
+                        padding: 10px;
+                        border-radius: 15px;
+                        background-color: $claro;
+                        color: $verde;
+                }
+            }
+        }
+    }@include bp (lg){        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        position: relative;
+        height: 50px;
+        top: 6%;
+        margin-left: 5%;
+        padding: 15px;
+        transition: none;
+        border-radius: 20px;
+        z-index: 0;
+            li{
+                display: flex;
+                flex-direction: row;
+                transition: none;
+                padding: 5px;
+                margin: 10px;
+                a{
+                    margin: 10px;
+                    font-size: $font +10;
                     &:hover{
                         padding: 10px;
                         border-radius: 15px;
@@ -115,7 +152,8 @@ header{
     z-index: 1;
     background-image: url(../imagenes/langostino.jpg);
     background-attachment: fixed;
-    background-size: 180% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     height: 95vh;          
@@ -159,14 +197,22 @@ header{
                         color: $claro;
                         background-color: $verde;
                         }
-                    }@include responsive (md){
-                        background-size: cover;
+                    }@include bp (md){
                         justify-content: left;
                             h1{
+                                margin-left: 15px;
+                                font-size: $font *2.5;
+                            } .btn-inicio{
+                                left: 45%;
+                            }     
+                        }@include bp (lg){
+                            justify-content: left;
+                            h1{
+                                font-size: $font *3;
                                 margin-left: 10px;
-                            }      
-                        }.btn-inicio{
-                            left: 40%;
+                            } .btn-inicio{
+                                left: 43%;                        
+                            }     
                         }
             
             
@@ -178,7 +224,7 @@ header{
     position: absolute;
     z-index: 100;
     top: 105%;
-    left: 37%;
+    left: 30%;
     width: 200px;
     height: 200px;
     background-color: $claro;
@@ -208,19 +254,23 @@ header{
                 
             }
         }
-        @include responsive (md){
+        @include bp (md){
             top: 100%;
-            left: 32%;
+            left: 38%;
             width: 300px;
             height: 300px;
             h2{
-                font-size: $font+5;    
+                font-size: $font + 10;    
+            }          
+        }@include bp (lg){
+            top: 100%;
+            left: 38%;
+            width: 300px;
+            height: 300px;
+            h2{
+                font-size: $font + 15;    
             }
-            @include responsive (lg){
-                top: 100%;
-                left: 35%; 
-            }               
-        }
+            }
     }
 
 .presentacion{
@@ -244,23 +294,20 @@ header{
                     font-size: $font;
                     text-shadow: 2px $verde;
                 } 
-        @include responsive (md){
-            h2{
-                font-size: $font +10;
-                display: flex;
-            }@include responsive (lg){
-                align-items:flex-end ;
-                .pres{
-                    margin-bottom: 20px;
-                }
-            
-        }
-        }
-    }
-
+                @include bp (md){
+                    h2{
+                    font-size: $font +15;
+                    }
+                }@include bp (lg){
+                    h2{
+                        font-size: $font +25;
+                    }
+                }                        
+            }
 .pago{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     padding-top: 10px;
     background-color: $claro;
     height: 20vh;
@@ -268,7 +315,17 @@ header{
         color: $verde;
         text-align: center;
         padding-bottom: 20px;
-}
+        }@include bp (md){
+        justify-content:space-evenly;
+        h2{
+            font-size: $font + 10;
+            }
+                }@include bp (lg){
+                    h2{
+                        font-size: $font +15;
+                    }
+        }
+
 
  .boxpago{
         display: flex;
@@ -309,9 +366,12 @@ footer{
     background-color: $claro;
     background-image: url(../imagenes/logo.png);
     background-repeat: no-repeat;
-    background-size: 90px 90px;
+    background-size: 110px 110px;
     background-position: center;
     height: 30vh;
+    @include bp (lg){
+        background-size: 150px 150px ;
+    }
 }
 
 i{
@@ -329,29 +389,26 @@ i{
                 background-color: $verde;
                 color: $claro;
             }
-        }@include responsive (md){
+        }@include bp (md){
             margin-top: 20px;
+            font-size: $font + 10;
+        }@include bp (lg){
+            margin-top: 20px;
+            font-size: $font +15;
         }
 }
 .contacto{
-    padding-top: 10px;
-    font-size: 25px;
-    text-align: center;
-        a{
-            color: $verde;
-            &:hover{
-                padding: 5px;
-                border-radius: 30px;
-                background-color: $verde;
-                color: $claro;
-            }
-            }@include responsive (md){
-                margin-top: 20px;
-        }
+    @extend .redes;
 }
-
 
 .copy{
     font-size: 20px;
     text-align: center;
+    @include bp (md){
+        font-size: $font+ 10;
+        }    
+    @include bp (lg){
+        margin-top: 10px;
+        font-size: $font + 10;
+    }
 }
