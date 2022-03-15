@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Peshku  Tienda de Mar</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="tienda de pescados y mariscos">
+        <meta name="keywords" content="pescados, mariscos, delivery de pescados">
         <link rel="icon" href="../imagenes/logo.png">
+        <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&display=swap" rel="stylesheet">      
         <link rel="stylesheet" href="../css/destino.css">
+        <title>Peshku  Tienda de Mar</title>
     </head>
-    <body class="bodycompra">
-        <header>
-            <img class="imagenlogo" src="../imagenes/logo.png" alt="Logo">
-        </header>    
-        <nav>
-            <ul>
-                <li><a href="../secciones/inicio.html">Inicio</a></li>
+    <body>
+    <header>
+        <nav class="nav">
+            <div>
+                <a href="../secciones/inicio.html"><img class="imagenlogo" src="../imagenes/logo.png" alt="Logo"></a>
+            </div>                
+            <input type="checkbox" id="menu">
+            <label for="menu" class="bar-btn">
+                <i class="fa fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a class="home" href="../secciones/inicio.html">Inicio</a></li>
                 <li><a href="../secciones/productos.html">Productos</a></li>
                 <li><a href="../secciones/como-comprar.html">Como Comprar</a></li>
                 <li><a href="../secciones/contacto.html">Contacto</a></li>
             </ul>
-        </nav> 
+        </nav>  
+</header>
         <main class="compra">
-                <h1 class="titulocompra">Como Comprar</h1>
-                <div class="boxcompra primero">
-                    <h2>Ingresa a nuestro sitio</h2>
-                    <p>Dentro del sitio web podes hacer tu compra en nuestra tienda o hacer tu pedido a traves de Whatsapp.</p>
+                <div class="titulo">
+                    <h1>Como Comprar</h1>
                 </div>
-                <div class="boxcompra segundo">
-                    <h2>Elegi tus Productos</h2>
-                    <p>Selecciona tus productos deseados
-                            y agregalos al carrito.</p>
+                <div class="uno">
+                    <h2>01</h2>
+                    <p>Ingresa en nuestra seccion de productos</p>
                 </div>
-                <div class="boxcompra tercero">
-                    <h2>Entrega</h2>
-                    <p>Los envios se coordinan a traves de Whatsapp, una vez realizada la compra. Las entregas se realizan de lunes a
-                    jueves entre las 12 y 16 horas.</p>
+                <div class="dos">
+                    <h2>02</h2>
+                    <p>Elegi tipo y cantidad de producto deseado <br>
+                            Agregalos al carrito.</p>
                 </div>
-                <div class="boxcompra cuarto">
-                    <h2> Disfruta y Comparti</h2>
-                    <p>Comparti tus platos en nuestras redes.</p>
+                <div class="tres">
+                    <h2>03</h2>
+                    <p>Completa el formulario de contacto <br> de esta manera se coordina dia y horario de entrega</p>
+                </div>
+                <div class="cuatro">
+                    <h2>04</h2>
+                    <p>Efectua el pago a traves de los metodos disponibles</p>
                 </div>
         </main>
-        <footer>
+        <footer class="pie">
             <div class="redes">
-                <h4>Seguinos en nuestras redes</h4>
-                <!--iconos de las redes sociales-->                
-                <a href="https://instagram.com/peshkumdp?utm_medium=copy_link" target="_blank">Instagram</a>
-                <a href="https://facebook.com/peshku-100445365145226/" target="_blank">Facebook</a>
+                <h4>Seguinos en nuestras redes</h4>               
+                <a href="https://instagram.com/peshkumdp?utm_medium=copy_link" target="_blank"><i class="fa-brands fa-1x fa-instagram"></i></a>
+                <a href="https://facebook.com/peshku-100445365145226/" target="_blank"><i class="fa-brands fa-1x fa-facebook-f"></i></a>
             </div>
             <div class="contacto">
                 <h4>Contactanos</h4>
-                <a href="https://wa.me/2235372182" target="_blank">Whatsapp</a>
-                <a href="mailto:peshkumdp@gmail.com" target="_blank">Mail</a>
-            </div>
-            <div class="mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d100584.81594270153!2d-57.63386826274978!3d-38.017356342247965!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d94d19d34209%3A0xdd9670804bfed126!2sMar%20del%20Plata%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sus!4v1640659264940!5m2!1ses!2sus" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <a href="https://wa.me/2235372182" target="_blank"><i class="fa-brands fa-1x fa-whatsapp"></i></a>
+                <a href="mailto:peshkumdp@gmail.com" target="_blank"><i class="fa-solid fa-1x fa-envelope"></i></a>
             </div>
             <div class="copy">
                <p> Copyright Peshku2020 Todos los Derechos Reservados</p>
             </div>
         </footer>
-    </body>      
+    </body>     

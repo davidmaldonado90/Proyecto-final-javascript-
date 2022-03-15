@@ -1,0 +1,146 @@
+@import "variables";
+@import "mixin";
+
+header{
+    width: 100%;
+    height: 12vh;
+    background-color: $claro; 
+    nav{
+        height: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; } 
+        @include bp (md){
+            height: 16vh;
+            }@include bp (lg){
+                height: 18vh;
+                }
+        }
+
+.imagenlogo{
+    width: 90px;
+    height: 90px;
+    margin-left: 20px;
+    @include bp (md){
+        position: absolute;
+        top: 0;
+        margin: 5px;
+        z-index: 10;
+    }
+    @include bp (lg){
+        position: absolute;
+        top: 5px;
+        width: 100px;
+        height: 100px; 
+        z-index: 10;
+        margin-left: 10px;
+    }
+}  
+
+
+.bar-btn{
+    font-size: 25px;
+    color: $verde;
+    margin-right: 20px;
+    cursor: pointer;
+    @include bp (md){
+        display: none;    
+    }
+    @include bp (lg){
+        display: none; 
+    }
+}
+
+
+.nav-menu{
+    position: fixed;
+    width: 100%;
+    height: 0vh;
+    top: 100px;
+    background-color: $verde;
+    text-align: center;
+    transition: all .5s;
+    z-index: 9999;
+    li{
+        display: none;
+        line-height: 30px;
+        margin: 50px 0;
+        transition: all .5s;
+        a{
+            color: $claro;
+            border-radius: 20px;
+            font-size: $font + 5;
+        }                
+    }          
+    @include bp (md){
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        position: relative;
+        margin-left: 5%;
+        height: 50px;
+        top: 4%;
+        padding: 15px;
+        transition: none;
+        border-radius: 20px;
+        z-index: 0;
+            li{
+                display: flex;
+                flex-direction: row;
+                transition: none;
+                padding: 5px;
+                margin: 10px;
+                a{
+                    margin: 10px;
+                    font-size: $font +10;
+                    &:hover{
+                        padding: 10px;
+                        border-radius: 15px;
+                        background-color: $claro;
+                        color: $verde;
+                }
+            }
+        }
+    }@include bp (lg){        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        position: relative;
+        height: 50px;
+        top: 6%;
+        margin-left: 5%;
+        padding: 15px;
+        transition: none;
+        border-radius: 20px;
+        z-index: 0;
+            li{
+                display: flex;
+                flex-direction: row;
+                transition: none;
+                padding: 5px;
+                margin: 10px;
+                a{
+                    margin: 10px;
+                    font-size: $font +10;
+                    &:hover{
+                        padding: 10px;
+                        border-radius: 15px;
+                        background-color: $claro;
+                        color: $verde;
+                }
+            }
+        }
+    }
+}
+#menu{
+    display: none;
+    &:checked ~ .nav-menu{
+        height: 100vh;
+        li{
+            display: block;
+        }
+    }
+}

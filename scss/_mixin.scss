@@ -5,15 +5,11 @@
   
         $md: "(min-width: 768px) and (max-width: 1023px)";
         $lg: "(min-width: 1024px)";
-        $xl: "(min-width: 1200px)";
     
         @if $point == md {
           @media #{$md} { @content; }
         }
-        @else if $point = lg {
-          @media #{$lg} { @content; }
-        }
-        @else if $point == xl {
-          @media #{$xl}  { @content; }
+        @else if $point == lg {
+          @media  #{$lg} { @content; }
         }
     }

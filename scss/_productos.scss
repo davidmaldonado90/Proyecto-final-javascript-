@@ -1,0 +1,108 @@
+@import "variables";
+@import "mixin";
+
+.productos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-image: url(../imagenes/puerto.jpg);
+    height: 120vh;
+    h1{
+        align-items: center;
+        color: $claro;
+    }
+    @include bp (md){
+        flex-direction: row;
+        background-size: 100% 70vh;
+        height: 80vh;
+        h1{
+            font-size: $font * 2;
+            position: absolute;
+            top: 25%;
+            left: 45%;
+        }
+    }@include bp (lg){
+        flex-direction: row;
+        background-size: cover;
+        height: 100vh;
+        h1{
+            font-size: $font * 2;
+            position: absolute;
+            top: 20%;
+            left: 45%;
+        }
+    }
+}
+
+
+.fresco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 150px;
+    height: 150px;
+    background-color: $claro;
+    border: solid 3px $claro;
+    border-radius: 15px;
+    opacity: .8;
+    img{
+        width: 120px;
+        height: 120px;
+        border-radius: 15px;
+    }
+    h2{
+        color: $verde;
+        padding-bottom: 5px;
+        text-align: center;
+        font-size: $font ;
+    }
+            animation-name: animacion2;
+            animation-iteration-count: 1;
+            animation-duration: 2s;
+            animation-delay: 0s;
+
+            @keyframes animacion2{
+                from{
+                    transform: translatex(-300%);
+                    }
+                to{
+                    transform: translatex(0);
+                
+            }
+        }@include bp (md){
+            width: 200px;
+            height: 200px;
+            h2{
+                font-size: $font+5;
+            }
+            img{
+                width: 150px;
+                height: 150px;
+            }
+        }@include bp (lg){
+            width: 250px;
+            height: 250px;
+            h2{
+                font-size: $font +10;
+            }
+            img{
+                width: 180px;
+                height: 180px;                
+            }
+        }
+}
+
+.congelado{
+    @extend .fresco;
+}
+
+.rebozado{
+    @extend .fresco;
+}
+
+.conserva{
+    @extend .fresco
+}

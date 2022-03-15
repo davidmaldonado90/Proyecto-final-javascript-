@@ -1,0 +1,79 @@
+@import "variables";
+@import "mixin";
+
+footer{
+    display: grid;
+    grid-template-areas: 
+    "redes contacto"
+    "copy   copy";
+    grid-template-columns: 50%;
+    grid-template-rows: 78% 22%;
+}
+
+.redes{
+    grid-area: redes;
+}
+.contacto{
+    grid-area: contacto;
+}
+.copy{
+    grid-area: copy;
+}
+
+.pie{
+    border-top: 2px solid $verde;
+    color: $verde;
+    background-color: $claro;
+    background-image: url(../imagenes/logo.png);
+    background-repeat: no-repeat;
+    background-size: 110px 110px;
+    background-position: center;
+    height: 30vh;
+    @include bp (md){
+        background-size: 130px 130px ;
+        height: 35vh;
+    }
+    @include bp (lg){
+        background-size: 150px 150px ;
+        height: 35vh;
+    }
+}
+
+i{
+    padding: 10px;
+}
+.redes{
+    padding-top: 10px;
+    font-size: 25px;
+    text-align: center;    
+        a{
+            color: $verde;
+            &:hover{
+                padding: 5px;
+                border-radius: 30px;
+                background-color: $verde;
+                color: $claro;
+            }
+        }@include bp (md){
+            margin-top: 20px;
+            font-size: $font + 10;
+        }@include bp (lg){
+            margin-top: 20px;
+            font-size: $font +10;
+        }
+}
+.contacto{
+    @extend .redes;
+}
+
+.copy{
+    font-size: $font;
+    text-align: center;
+    margin-top: 15px;
+    @include bp (md){
+        font-size: $font+ 5;
+        }    
+    @include bp (lg){
+        font-size: $font + 5;
+    }
+}

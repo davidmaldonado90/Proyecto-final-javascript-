@@ -1,0 +1,68 @@
+@import "variables";
+@import "mixin";
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    background-image: url(../imagenes/salmon-salvaje.jpg);
+    height: 70vh;
+    @include bp (md){
+        background-size: cover;
+        height: 80vh;
+        }
+        @include bp (lg){
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+    }
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70vh;
+    h1{
+        margin: 16px;
+        font-size: $font;
+        color: $verde;
+        }
+    #name{
+        color: $verde;
+        width: 40%;
+        font-size: $font;
+        font-family: 'Big Shoulders Display', cursive;
+        border: 3px solid $verde;
+        margin: 15px;
+    }
+        #email{
+            @extend #name;
+        }
+            textarea{ 
+                @extend #name;
+                width: 50%;
+                height: 150px;
+            }
+        }
+
+
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 16px;
+    }
+    .btn{
+        width: 60px;
+        height: 20px;
+        border: 1px solid $claro;
+        color: $claro;
+        background-color: $verde;
+        font-size: $font - 5;
+        font-family: 'Big Shoulders Display', cursive;
+        &:hover{
+            background-color: $claro;
+            color: $verde;
+        }
+}

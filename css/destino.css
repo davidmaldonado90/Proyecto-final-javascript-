@@ -11,7 +11,7 @@ body {
 
 header {
   width: 100%;
-  height: 13vh;
+  height: 12vh;
   background-color: #e7e2cc; }
   header nav {
     height: 100px;
@@ -19,6 +19,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    header {
+      height: 16vh; } }
+  @media (min-width: 1024px) {
+    header {
+      height: 18vh; } }
 
 .imagenlogo {
   width: 90px;
@@ -34,9 +40,10 @@ header {
     .imagenlogo {
       position: absolute;
       top: 5px;
-      width: 110px;
-      height: 110px;
-      z-index: 10; } }
+      width: 100px;
+      height: 100px;
+      z-index: 10;
+      margin-left: 10px; } }
 
 .bar-btn {
   font-size: 25px;
@@ -132,6 +139,73 @@ header {
     #menu:checked ~ .nav-menu li {
       display: block; }
 
+footer {
+  display: grid;
+  grid-template-areas: "redes contacto" "copy   copy";
+  grid-template-columns: 50%;
+  grid-template-rows: 78% 22%; }
+
+.redes, .contacto {
+  grid-area: redes; }
+
+.contacto {
+  grid-area: contacto; }
+
+.copy {
+  grid-area: copy; }
+
+.pie {
+  border-top: 2px solid #00555d;
+  color: #00555d;
+  background-color: #e7e2cc;
+  background-image: url(../imagenes/logo.png);
+  background-repeat: no-repeat;
+  background-size: 110px 110px;
+  background-position: center;
+  height: 30vh; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .pie {
+      background-size: 130px 130px;
+      height: 35vh; } }
+  @media (min-width: 1024px) {
+    .pie {
+      background-size: 150px 150px;
+      height: 35vh; } }
+
+i {
+  padding: 10px; }
+
+.redes, .contacto {
+  padding-top: 10px;
+  font-size: 25px;
+  text-align: center; }
+  .redes a, .contacto a {
+    color: #00555d; }
+    .redes a:hover, .contacto a:hover {
+      padding: 5px;
+      border-radius: 30px;
+      background-color: #00555d;
+      color: #e7e2cc; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .redes, .contacto {
+      margin-top: 20px;
+      font-size: 30px; } }
+  @media (min-width: 1024px) {
+    .redes, .contacto {
+      margin-top: 20px;
+      font-size: 30px; } }
+
+.copy {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15px; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .copy {
+      font-size: 25px; } }
+  @media (min-width: 1024px) {
+    .copy {
+      font-size: 25px; } }
+
 .container {
   display: flex;
   flex-direction: column; }
@@ -139,7 +213,7 @@ header {
 .bienvenida {
   position: relative;
   z-index: 1;
-  background-image: url(../imagenes/langostino.jpg);
+  background-image: url(../imagenes/pescado-congelado.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -149,9 +223,9 @@ header {
   .bienvenida h1 {
     margin-top: 30px;
     padding: 5px;
-    color: #e7e2cc;
+    color: #00555d;
     font-size: 40px;
-    text-shadow: 2px 2px #00555d;
+    text-shadow: 2px 2px #e7e2cc;
     animation-name: animacion1;
     animation-iteration-count: 1;
     animation-duration: 1s;
@@ -172,7 +246,7 @@ header {
     height: 40px;
     font-size: 20px;
     top: 70%;
-    left: 33%;
+    left: 32%;
     text-transform: uppercase;
     font-weight: bolder;
     background-color: #e7e2cc;
@@ -187,7 +261,7 @@ header {
         margin-left: 15px;
         font-size: 50px; }
       .bienvenida .btn-inicio {
-        left: 45%; } }
+        left: 43%; } }
   @media (min-width: 1024px) {
     .bienvenida {
       justify-content: left; }
@@ -195,7 +269,7 @@ header {
         font-size: 60px;
         margin-left: 10px; }
       .bienvenida .btn-inicio {
-        left: 43%; } }
+        left: 44%; } }
 
 .card {
   display: flex;
@@ -231,7 +305,7 @@ header {
   @media (min-width: 768px) and (max-width: 1023px) {
     .card {
       top: 100%;
-      left: 38%;
+      left: 36%;
       width: 300px;
       height: 300px; }
       .card h2 {
@@ -252,12 +326,13 @@ header {
   background-size: cover;
   height: 75vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center; }
   .presentacion .pres {
     margin-top: 40px;
     background-color: #e7e2cc;
-    opacity: 0.6; }
+    opacity: 0.6;
+    margin-bottom: 5%; }
   .presentacion h2 {
     text-transform: uppercase;
     padding: 5px;
@@ -265,11 +340,21 @@ header {
     font-size: 20px;
     text-shadow: 2px #00555d; }
   @media (min-width: 768px) and (max-width: 1023px) {
-    .presentacion h2 {
-      font-size: 35px; } }
+    .presentacion {
+      height: 80vh;
+      align-items: flex-end; }
+      .presentacion .pres {
+        margin-bottom: 5%; }
+      .presentacion h2 {
+        font-size: 35px; } }
   @media (min-width: 1024px) {
-    .presentacion h2 {
-      font-size: 45px; } }
+    .presentacion {
+      height: 95vh;
+      align-items: flex-end; }
+      .presentacion .pres {
+        margin-bottom: 10%; }
+      .presentacion h2 {
+        font-size: 40px; } }
 
 .pago {
   display: flex;
@@ -284,80 +369,247 @@ header {
     padding-bottom: 20px; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .pago {
-      justify-content: space-evenly; }
+      justify-content: space-evenly;
+      height: 25vh; }
       .pago h2 {
         font-size: 30px; } }
   @media (min-width: 1024px) {
-    .pago h2 {
-      font-size: 35px; } }
+    .pago {
+      height: 25vh; }
+      .pago h2 {
+        font-size: 35px; } }
   .pago .boxpago {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly; }
     .pago .boxpago .mpago {
       width: 150px; }
-  .pago img {
-    width: 50px;
-    height: 50px; }
+    .pago .boxpago img {
+      width: 50px;
+      height: 50px; }
 
-footer {
-  display: grid;
-  grid-template-areas: "redes contacto" "copy   copy";
-  grid-template-columns: 50%;
-  grid-template-rows: 78% 22%; }
+.productos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-image: url(../imagenes/puerto.jpg);
+  height: 120vh; }
+  .productos h1 {
+    align-items: center;
+    color: #e7e2cc; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .productos {
+      flex-direction: row;
+      background-size: 100% 70vh;
+      height: 80vh; }
+      .productos h1 {
+        font-size: 40px;
+        position: absolute;
+        top: 25%;
+        left: 45%; } }
+  @media (min-width: 1024px) {
+    .productos {
+      flex-direction: row;
+      background-size: cover;
+      height: 100vh; }
+      .productos h1 {
+        font-size: 40px;
+        position: absolute;
+        top: 20%;
+        left: 45%; } }
 
-.redes, .contacto {
-  grid-area: redes; }
-
-.contacto {
-  grid-area: contacto; }
-
-.copy {
-  grid-area: copy; }
-
-.pie {
-  border-top: 2px solid #00555d;
-  color: #00555d;
+.fresco, .congelado, .rebozado, .conserva {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 150px;
+  height: 150px;
   background-color: #e7e2cc;
-  background-image: url(../imagenes/logo.png);
-  background-repeat: no-repeat;
-  background-size: 110px 110px;
-  background-position: center;
-  height: 30vh; }
+  border: solid 3px #e7e2cc;
+  border-radius: 15px;
+  opacity: .8;
+  animation-name: animacion2;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 0s; }
+  .fresco img, .congelado img, .rebozado img, .conserva img {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px; }
+  .fresco h2, .congelado h2, .rebozado h2, .conserva h2 {
+    color: #00555d;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 20px; }
+
+@keyframes animacion2 {
+  from {
+    transform: translatex(-300%); }
+  to {
+    transform: translatex(0); } }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .fresco, .congelado, .rebozado, .conserva {
+      width: 200px;
+      height: 200px; }
+      .fresco h2, .congelado h2, .rebozado h2, .conserva h2 {
+        font-size: 25px; }
+      .fresco img, .congelado img, .rebozado img, .conserva img {
+        width: 150px;
+        height: 150px; } }
   @media (min-width: 1024px) {
-    .pie {
-      background-size: 150px 150px; } }
+    .fresco, .congelado, .rebozado, .conserva {
+      width: 250px;
+      height: 250px; }
+      .fresco h2, .congelado h2, .rebozado h2, .conserva h2 {
+        font-size: 30px; }
+      .fresco img, .congelado img, .rebozado img, .conserva img {
+        width: 180px;
+        height: 180px; } }
 
-i {
-  padding: 10px; }
+.compra {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 120vh;
+  background-image: url(../imagenes/mar.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .compra .titulo {
+    margin-top: 15px;
+    background-color: #e7e2cc;
+    opacity: 0.6;
+    width: 200px;
+    height: 50px;
+    align-self: center; }
+    .compra .titulo h1 {
+      text-align: center;
+      margin-right: 15px;
+      font-size: 30px;
+      color: #00555d; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .compra {
+      height: 80vh;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+      .compra .titulo {
+        position: absolute;
+        top: 20%;
+        left: 38%; } }
+  @media (min-width: 1024px) {
+    .compra {
+      height: 80vh;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+      .compra .titulo {
+        position: absolute;
+        top: 20%;
+        left: 38%; } }
 
-.redes, .contacto {
-  padding-top: 10px;
-  font-size: 25px;
-  text-align: center; }
-  .redes a, .contacto a {
+.uno, .dos, .cuatro, .tres {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  align-self: flex-start;
+  background-color: #e7e2cc;
+  width: 350px;
+  height: 150px;
+  opacity: 0.6;
+  font-weight: bolder;
+  animation-name: compra;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 0s; }
+  .uno h2, .dos h2, .cuatro h2, .tres h2 {
+    color: #00555d;
+    font-size: 40px; }
+  .uno p, .dos p, .cuatro p, .tres p {
+    text-align: center;
+    font-size: 30px;
     color: #00555d; }
-    .redes a:hover, .contacto a:hover {
-      padding: 5px;
-      border-radius: 30px;
-      background-color: #00555d;
-      color: #e7e2cc; }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .redes, .contacto {
-      margin-top: 20px;
-      font-size: 30px; } }
-  @media (min-width: 1024px) {
-    .redes, .contacto {
-      margin-top: 20px;
-      font-size: 35px; } }
 
-.copy {
-  font-size: 20px;
-  text-align: center; }
+@keyframes compra {
+  from {
+    transform: translatey(-300%); }
+  to {
+    transform: translatey(0); } }
   @media (min-width: 768px) and (max-width: 1023px) {
-    .copy {
-      font-size: 30px; } }
+    .uno, .dos, .cuatro, .tres {
+      align-self: center;
+      width: auto;
+      height: auto; } }
   @media (min-width: 1024px) {
-    .copy {
-      margin-top: 10px;
-      font-size: 30px; } }
+    .uno, .dos, .cuatro, .tres {
+      align-self: center;
+      width: auto;
+      height: auto; } }
+
+.dos, .cuatro {
+  align-self: flex-end; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .dos, .cuatro {
+      align-self: center; } }
+  @media (min-width: 1024px) {
+    .dos, .cuatro {
+      align-self: center; } }
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  background-image: url(../imagenes/salmon-salvaje.jpg);
+  height: 70vh; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .formulario {
+      background-size: cover;
+      height: 80vh; } }
+  @media (min-width: 1024px) {
+    .formulario {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh; } }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70vh; }
+  .form h1 {
+    margin: 16px;
+    font-size: 20px;
+    color: #00555d; }
+  .form #name, .form #email, .form textarea {
+    color: #00555d;
+    width: 40%;
+    font-size: 20px;
+    font-family: 'Big Shoulders Display', cursive;
+    border: 3px solid #00555d;
+    margin: 15px; }
+  .form textarea {
+    width: 50%;
+    height: 150px; }
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-left: 16px; }
+
+.btn {
+  width: 60px;
+  height: 20px;
+  border: 1px solid #e7e2cc;
+  color: #e7e2cc;
+  background-color: #00555d;
+  font-size: 15px;
+  font-family: 'Big Shoulders Display', cursive; }
+  .btn:hover {
+    background-color: #e7e2cc;
+    color: #00555d; }
