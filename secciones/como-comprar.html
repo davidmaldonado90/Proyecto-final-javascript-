@@ -1,71 +1,98 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="tienda de pescados y mariscos">
-        <meta name="keywords" content="pescados, mariscos, delivery de pescados">
-        <link rel="icon" href="../imagenes/logo.png">
-        <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&display=swap" rel="stylesheet">      
-        <link rel="stylesheet" href="../css/destino.css">
-        <title>Peshku  Tienda de Mar</title>
-    </head>
-    <body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="tienda de pescados y mariscos" />
+    <meta name="keywords" content="pescados, mariscos, delivery de pescados" />
+    <link rel="icon" href="../imagenes/logo.png" />
+    <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/destino.css" />
+    <title>Peshku Tienda de Mar</title>
+  </head>
+  <body>
     <header>
-        <nav class="nav">
-            <div>
-                <a href="../secciones/inicio.html"><img class="imagenlogo" src="../imagenes/logo.png" alt="Logo"></a>
-            </div>                
-            <input type="checkbox" id="menu">
-            <label for="menu" class="bar-btn">
-                <i class="fa fa-bars"></i>
-            </label>
-            <ul class="nav-menu">
-                <li><a class="home" href="../secciones/inicio.html">Inicio</a></li>
-                <li><a href="../secciones/productos.html">Productos</a></li>
-                <li><a href="../secciones/como-comprar.html">Como Comprar</a></li>
-                <li><a href="../secciones/contacto.html">Contacto</a></li>
-            </ul>
-        </nav>  
-</header>
-        <main class="compra">
-                <div class="titulo">
-                    <h1>Como Comprar</h1>
-                </div>
-                <div class="uno">
-                    <h2>01</h2>
-                    <p>Ingresa en nuestra seccion de productos</p>
-                </div>
-                <div class="dos">
-                    <h2>02</h2>
-                    <p>Elegi tipo y cantidad de producto deseado <br>
-                            Agregalos al carrito.</p>
-                </div>
-                <div class="tres">
-                    <h2>03</h2>
-                    <p>Completa el formulario de contacto <br> de esta manera se coordina dia y horario de entrega</p>
-                </div>
-                <div class="cuatro">
-                    <h2>04</h2>
-                    <p>Efectua el pago a traves de los metodos disponibles</p>
-                </div>
-        </main>
-        <footer class="pie">
-            <div class="redes">
-                <h4>Seguinos en nuestras redes</h4>               
-                <a href="https://instagram.com/peshkumdp?utm_medium=copy_link" target="_blank"><i class="fa-brands fa-1x fa-instagram"></i></a>
-                <a href="https://facebook.com/peshku-100445365145226/" target="_blank"><i class="fa-brands fa-1x fa-facebook-f"></i></a>
-            </div>
-            <div class="contacto">
-                <h4>Contactanos</h4>
-                <a href="https://wa.me/2235372182" target="_blank"><i class="fa-brands fa-1x fa-whatsapp"></i></a>
-                <a href="mailto:peshkumdp@gmail.com" target="_blank"><i class="fa-solid fa-1x fa-envelope"></i></a>
-            </div>
-            <div class="copy">
-               <p> Copyright Peshku2020 Todos los Derechos Reservados</p>
-            </div>
-        </footer>
-    </body>     
+      <nav class="nav">
+        <div>
+          <a href="../secciones/inicio.html"
+            ><img class="imagenlogo" src="../imagenes/logo.png" alt="Logo"
+          /></a>
+        </div>
+        <input type="checkbox" id="menu" />
+        <label for="menu" class="bar-btn">
+          <i class="fa fa-bars"></i>
+        </label>
+        <ul class="nav-menu">
+          <li><a class="home" href="../secciones/inicio.html">Inicio</a></li>
+          <li><a href="../secciones/productos.html">Productos</a></li>
+          <li><a href="../secciones/como-comprar.html">Como Comprar</a></li>
+          <li><a href="../secciones/contacto.html">Contacto</a></li>
+          <li>
+            <button id="btn-carrito">
+              <i class="fa-solid fa-cart-shopping"></i
+              ><span id="contador">0</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="compra">
+      <div class="titulo">
+        <h1>Como Comprar</h1>
+      </div>
+      <div class="uno">
+        <h2>01</h2>
+        <p>Ingresa en nuestra seccion de productos</p>
+      </div>
+      <div class="dos">
+        <h2>02</h2>
+        <p>
+          Elegi tipo y cantidad de producto deseado <br />
+          Agregalos al carrito.
+        </p>
+      </div>
+      <div class="tres">
+        <h2>03</h2>
+        <p>
+          Completa el formulario de contacto <br />
+          de esta manera se coordina dia y horario de entrega
+        </p>
+      </div>
+      <div class="cuatro">
+        <h2>04</h2>
+        <p>Efectua el pago a traves de los metodos disponibles</p>
+      </div>
+    </main>
+    <footer class="pie">
+      <div class="redes">
+        <h4>Seguinos en nuestras redes</h4>
+        <a
+          href="https://instagram.com/peshkumdp?utm_medium=copy_link"
+          target="_blank"
+          ><i class="fa-brands fa-1x fa-instagram"></i
+        ></a>
+        <a href="https://facebook.com/peshku-100445365145226/" target="_blank"
+          ><i class="fa-brands fa-1x fa-facebook-f"></i
+        ></a>
+      </div>
+      <div class="contacto">
+        <h4>Contactanos</h4>
+        <a href="https://wa.me/2235372182" target="_blank"
+          ><i class="fa-brands fa-1x fa-whatsapp"></i
+        ></a>
+        <a href="mailto:peshkumdp@gmail.com" target="_blank"
+          ><i class="fa-solid fa-1x fa-envelope"></i
+        ></a>
+      </div>
+      <div class="copy">
+        <p>Copyright Peshku2020 Todos los Derechos Reservados</p>
+      </div>
+    </footer>
+  </body>
+</html>
