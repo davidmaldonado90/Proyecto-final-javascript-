@@ -22,6 +22,15 @@ const mostrarProductos = () => {
     //console.log(btnCompra);
     btnCompra.addEventListener("click", () => {
       agregarCarrito(el.id);
+      Toastify({
+        text: "El producto se agrego al carrito",
+        duration: 1500,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
     });
   });
 };
@@ -30,14 +39,18 @@ mostrarProductos();
 
 const carritoVacio = () => {
   let vacio = document.getElementById("precioProducto");
-  if (carritoCompra == "") {
-    vacio.innerHTML = `<p>El carrito esta vacio</p>`;
-  }
+  vacio.innerHTML = `<p>El carrito esta vacio</p>`;
+};
+
+const carritoLleno = () => {
+  let vacio = document.getElementById("precioProducto");
+  vacio.innerHTML = "";
 };
 
 const agregarCarrito = (id) => {
   let productoAñadir = stockProductos.find((item) => item.id === parseInt(id));
   carritoCompra.push(productoAñadir);
+  carritoLleno();
   mostrarCarrito(productoAñadir);
   actualizarCarrito();
   localStorage.setItem("carrito", JSON.stringify(carritoCompra));
@@ -55,6 +68,9 @@ const mostrarCarrito = (productoAñadir) => {
   btnEliminar.addEventListener("click", () => {
     btnEliminar.parentElement.remove();
     carritoCompra = carritoCompra.filter((ele) => ele.id !== productoAñadir.id);
+    if (carritoCompra.length == 0) {
+      carritoVacio();
+    }
     actualizarCarrito();
     localStorage.setItem("carrito", JSON.stringify(carritoCompra));
   });
