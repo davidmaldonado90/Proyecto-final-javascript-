@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "tipo": "Fresco",
+    "nombre": "Filet de merluza",
+    "precio": 750,
+    "imagen": "../imagenes/FiletMerluza.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 2,
+    "tipo": "Fresco",
+    "nombre": "Filet de Pez Gallo",
+    "precio": 800,
+    "imagen": "../imagenes/PezGallo.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 3,
+    "tipo": "Fresco",
+    "nombre": "Filet de Salmon Rosado",
+    "precio": 2800,
+    "imagen": "../imagenes/salmon-salvaje.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 4,
+    "tipo": "Fresco",
+    "nombre": "Filet de Abadejo",
+    "precio": 1100,
+    "imagen": "../imagenes/Abadejo.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 5,
+    "tipo": "Congelado",
+    "nombre": "Mejillon Media valva",
+    "precio": 750,
+    "imagen": "../imagenes/MediaValva.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 6,
+    "tipo": "Congelado",
+    "nombre": "Tubo de Calamar",
+    "precio": 750,
+    "imagen": "../imagenes/TuboCalamar.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 7,
+    "tipo": "Congelado",
+    "nombre": "Cola de Langostino",
+    "precio": 1500,
+    "imagen": "../imagenes/ColaLangostino.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 8,
+    "tipo": "Congelado",
+    "nombre": "Filet de merluza",
+    "precio": 750,
+    "imagen": "../imagenes/FiletMerluza.jpg",
+    "cantidad": 1
+  }
+]

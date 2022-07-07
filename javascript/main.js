@@ -1,3 +1,13 @@
+import { getData } from "./getData.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarProductos();
+  if (localStorage.getItem("carrito")) {
+    const carritoStorage = recupero();
+    actualizarCarrito(carritoStorage);
+  }
+});
+
 //array carrito
 let carritoCompra = [];
 
@@ -8,8 +18,9 @@ const contadorCarrito = document.getElementById("contador");
 const precioTotal = document.getElementById("total");
 const boton = document.getElementById("fin");
 
-const mostrarProductos = () => {
-  stockProductos.forEach((el) => {
+const mostrarProductos = async () => {
+  const products = await getData();
+  products.forEach((el) => {
     let div = document.createElement("div");
     div.innerHTML = `<div id="card" class="fresco">
                           <img src="${el.imagen}"/>
@@ -24,18 +35,16 @@ const mostrarProductos = () => {
       agregarCarrito(el.id);
       Toastify({
         text: "El producto se agrego al carrito",
-        duration: 1500,
+        duration: 1000,
         gravity: "top",
         position: "right",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          background: "linear-gradient(to right, #00555d, #e7e2cc)",
         },
       }).showToast();
     });
   });
 };
-
-mostrarProductos();
 
 const carritoVacio = () => {
   let vacio = document.getElementById("precioProducto");
@@ -48,7 +57,9 @@ const carritoLleno = () => {
 };
 
 const agregarCarrito = (id) => {
-  let productoAñadir = stockProductos.find((item) => item.id === parseInt(id));
+  const productoAñadir = products.find((item) => item.id === parseInt(id));
+  // if (products.find((item) => item.id === parseInt(id))) {
+  // }
   carritoCompra.push(productoAñadir);
   carritoLleno();
   mostrarCarrito(productoAñadir);
@@ -61,7 +72,6 @@ const mostrarCarrito = (productoAñadir) => {
   div.classList.add("infoProducto");
   div.innerHTML = `<p>${productoAñadir.nombre}</p>
                     <p>$${productoAñadir.precio}</p>
-                    <img src="${productoAñadir.imagen}"/>
                     <button id="eliminar${productoAñadir.id}" class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>`;
   contenedorCarrito.appendChild(div);
   let btnEliminar = document.getElementById(`eliminar${productoAñadir.id}`);

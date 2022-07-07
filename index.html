@@ -30,6 +30,7 @@
   </head>
   <body class="container">
     <header>
+      <div class="login"><a href=".secciones/login.html">Login</a></div>
       <nav class="nav">
         <div>
           <a href="./secciones/inicio.html"
@@ -45,6 +46,12 @@
           <li><a href="./secciones/productos.html">Productos</a></li>
           <li><a href="./secciones/como-comprar.html">Como Comprar</a></li>
           <li><a href="./secciones/contacto.html">Contacto</a></li>
+          <li>
+            <button id="btn-carrito">
+              <i class="fa-solid fa-cart-shopping"></i
+              ><span id="contador">0</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
@@ -103,7 +110,8 @@
       </div>
     </footer>
 
-    <script src="./javascript/stock.js"></script>
-    <script src="./javascript/main.js"></script>
+    <!-- <script src="./javascript/stock.js"></script> -->
+    <script src="./javascript/main.js" type="module"></script>
+    <script src="./javascript/getData.js" type="module"></script>
   </body>
 </html>

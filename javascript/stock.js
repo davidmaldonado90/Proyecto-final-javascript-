@@ -75,8 +75,55 @@ stockProductos.push(
   )
 );
 
-// stockProductos.push(new producto(6, "Filet de merluza", Fresco, 750, "../imagenes/FiletMerluza.jpg", 1));
-// stockProductos.push(new producto(7, "Filet de merluza", Fresco, 750, "../imagenes/FiletMerluza.jpg", 1));
-// stockProductos.push(new producto(8, "Filet de merluza", Fresco, 750, "../imagenes/FiletMerluza.jpg", 1));
-// stockProductos.push(new producto(9, "Filet de merluza", Fresco, 750, "../imagenes/FiletMerluza.jpg", 1));
-// stockProductos.push(new producto(10, "Filet de merluza", Fresco, 750, "../imagenes/FiletMerluza.jpg", 1));
+stockProductos.push(
+  new producto(
+    7,
+    "Cola de Langostino",
+    "Congelado",
+    1500,
+    "../imagenes/ColaLangostino.jpg",
+    1
+  )
+);
+stockProductos.push(
+  new producto(
+    8,
+    "Filet de merluza",
+    "Congelado",
+    750,
+    "../imagenes/FiletMerluza.jpg",
+    1
+  )
+);
+
+console.log(JSON.stringify(stockProductos));
+// stockProductos.push(
+//   new producto(
+//     9,
+//     "Filet de merluza",
+//     Fresco,
+//     750,
+//     "../imagenes/FiletMerluza.jpg",
+//     1
+//   )
+// );
+// stockProductos.push(
+//   new producto(
+//     10,
+//     "Filet de merluza",
+//     Fresco,
+//     750,
+//     "../imagenes/FiletMerluza.jpg",
+//     1
+//   )
+// );
+// stockProductos.push(
+//   new producto(
+//     11,
+//     "Filet de merluza",
+//     Fresco,
+//     750,
+//     "../imagenes/FiletMerluza.jpg",
+//     1
+//   )
+// );
