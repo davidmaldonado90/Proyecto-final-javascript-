@@ -61,18 +61,14 @@ const carritoLleno = () => {
 
 const agregarCarrito = (id) => {
   const productoAñadir = products.find((item) => item.id === parseInt(id));
-  if (carritoCompra.some((item) => item.id === parseInt(id))) {
-    const prodMejorado = carritoCompra.find((item) => item.id === parseInt(id));
-    prodMejorado.cantidad = prodMejorado.cantidad + 1;
-  } else {
-    const prodMejorado = new Carrito(
-      productoAñadir.id,
-      productoAñadir.nombre,
-      productoAñadir.precio,
-      1
-    );
-    carritoCompra.push(prodMejorado);
-  }
+  // const verificar = carritoCompra.some (prod => prod.id === id)
+  // if (verificar){
+  //   const prod = carritoCompra.map(prod => {
+  //     if (prod.id === id){
+  //     prod.cantidad++;}
+  //   })
+  // }
+    
   carritoCompra.push(productoAñadir);
   carritoLleno();
   mostrarCarrito(productoAñadir);
@@ -85,6 +81,7 @@ const mostrarCarrito = (productoAñadir) => {
   div.classList.add("infoProducto");
   div.innerHTML = `<p>${productoAñadir.nombre}</p>
                     <p>$${productoAñadir.precio}</p>
+                    <p>Cantidad:${productoAñadir.cantidad}</p>
                     <button id="eliminar${productoAñadir.id}" class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>`;
   contenedorCarrito.appendChild(div);
   let btnEliminar = document.getElementById(`eliminar${productoAñadir.id}`);
