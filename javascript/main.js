@@ -1,16 +1,18 @@
+
 import { getData } from "./getData.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarProductos();
 
   if (localStorage.getItem("carrito")) {
-    const carritoStorage = recupero();
-    actualizarCarrito(carritoStorage);
+    recupero();
+    actualizarCarrito();
   }
 });
 
 //array carrito
 let carritoCompra = [];
+let products;
 
 //variables
 const contenedorProductos = document.getElementById("productos");
@@ -18,13 +20,12 @@ const contenedorCarrito = document.getElementById("info");
 const contadorCarrito = document.getElementById("contador");
 const precioTotal = document.getElementById("total");
 const boton = document.getElementById("fin");
-let products;
+
 
 const mostrarProductos = async () => {
   products = await getData();
-  if (products) {
     products.forEach((el) => {
-      const div = document.createElement("div");
+      let div = document.createElement("div");
       div.innerHTML = `<div id="card" class="fresco">
                           <img src="${el.imagen}"/>
                           <h2>${el.nombre}</h2>
@@ -32,6 +33,7 @@ const mostrarProductos = async () => {
                           <a id=boton${el.id}>Agregar al Carrito<i class="fa-solid fa-cart-plus"></i></a>
                     </div>`;
       contenedorProductos.appendChild(div);
+
       let btnCompra = document.getElementById(`boton${el.id}`);
       btnCompra.addEventListener("click", () => {
         agregarCarrito(el.id);
@@ -47,7 +49,8 @@ const mostrarProductos = async () => {
       });
     });
   }
-};
+
+
 
 const carritoVacio = () => {
   let vacio = document.getElementById("precioProducto");
@@ -59,36 +62,42 @@ const carritoLleno = () => {
   vacio.innerHTML = "";
 };
 
+carritoVacio();
+
 const agregarCarrito = (id) => {
-  const productoAñadir = products.find((item) => item.id === parseInt(id));
-  // const verificar = carritoCompra.some (prod => prod.id === id)
-  // if (verificar){
-  //   const prod = carritoCompra.map(prod => {
-  //     if (prod.id === id){
-  //     prod.cantidad++;}
-  //   })
-  // }
-    
-  carritoCompra.push(productoAñadir);
-  carritoLleno();
-  mostrarCarrito(productoAñadir);
-  actualizarCarrito();
-  localStorage.setItem("carrito", JSON.stringify(carritoCompra));
-};
+
+      let verificacion = carritoCompra.some(item => item.id === parseInt(id));
+
+      if (verificacion){
+        let productoNuevo = carritoCompra.map(item => item.id ===  parseInt(id))
+        productoNuevo.cantidad ++;
+        console.log(productoNuevo);
+      } else{
+        let productoAñadir = products.find(item => item.id === parseInt(id))
+      
+      carritoCompra.push(productoAñadir)
+      mostrarCarrito(productoAñadir);
+      actualizarCarrito();
+      carritoLleno();
+      localStorage.setItem("carrito", JSON.stringify(carritoCompra));}
+;}
 
 const mostrarCarrito = (productoAñadir) => {
-  let div = document.createElement("div");
+
+  let div = document.createElement('div');
   div.classList.add("infoProducto");
   div.innerHTML = `<p>${productoAñadir.nombre}</p>
                     <p>$${productoAñadir.precio}</p>
-                    <p>Cantidad:${productoAñadir.cantidad}</p>
-                    <button id="eliminar${productoAñadir.id}" class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>`;
+                    <p>Cantidad: ${productoAñadir.cantidad}</p>
+                    <button id= eliminar${productoAñadir.id} class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>`;
   contenedorCarrito.appendChild(div);
+
   let btnEliminar = document.getElementById(`eliminar${productoAñadir.id}`);
-  btnEliminar.addEventListener("click", () => {
+  btnEliminar.addEventListener('click', () => {
     btnEliminar.parentElement.remove();
+    console.log(btnEliminar)
     carritoCompra = carritoCompra.filter((ele) => ele.id !== productoAñadir.id);
-    if (carritoCompra.length == 0) {
+    if (carritoCompra.length === 0) {
       carritoVacio();
     }
     actualizarCarrito();
@@ -110,8 +119,6 @@ const recupero = () => {
     }
   }
 };
-
-recupero();
 
 const modal = () => {
   let verCarrito = document.getElementById("btn-carrito");
