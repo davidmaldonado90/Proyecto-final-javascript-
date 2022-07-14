@@ -20,6 +20,10 @@ const contenedorCarrito = document.getElementById("info");
 const contadorCarrito = document.getElementById("contador");
 const precioTotal = document.getElementById("total");
 const boton = document.getElementById("fin");
+const verCarrito = document.getElementById("btn-carrito");
+let cerrarCarrito = document.querySelector(".btn-cerrar");
+const modal = document.querySelector(".carrito");
+
 
 
 const mostrarProductos = async () => {
@@ -33,24 +37,23 @@ const mostrarProductos = async () => {
                           <a id=boton${el.id}>Agregar al Carrito<i class="fa-solid fa-cart-plus"></i></a>
                     </div>`;
       contenedorProductos.appendChild(div);
-
       let btnCompra = document.getElementById(`boton${el.id}`);
       btnCompra.addEventListener("click", () => {
         agregarCarrito(el.id);
         Toastify({
           text: "El producto se agrego al carrito",
-          duration: 1000,
+          duration: 2000,
           gravity: "top",
           position: "right",
           style: {
-            background: "linear-gradient(to right, #00555d, #e7e2cc)",
+            background: "linear-gradient(to right, #e7e2cc,  #00555d)",
           },
         }).showToast();
       });
     });
   }
 
-
+ 
 
 const carritoVacio = () => {
   let vacio = document.getElementById("precioProducto");
@@ -62,51 +65,74 @@ const carritoLleno = () => {
   vacio.innerHTML = "";
 };
 
-carritoVacio();
-
 const agregarCarrito = (id) => {
 
-      let verificacion = carritoCompra.some(item => item.id === parseInt(id));
+      let verificacion = carritoCompra.find(item => item.id === parseInt(id));
 
       if (verificacion){
-        let productoNuevo = carritoCompra.map(item => item.id ===  parseInt(id))
-        productoNuevo.cantidad ++;
-        console.log(productoNuevo);
-      } else{
-        let productoAñadir = products.find(item => item.id === parseInt(id))
-      
+        verificacion.cantidad += 1
+        document.getElementById(`cant${verificacion.id}`).innerHTML = `<p id=cant${verificacion.id}"> Cantidad: ${verificacion.cantidad}</p>`
+        console.log(verificacion);
+      } else {
+      let productoAñadir = products.find(item => item.id === parseInt(id))
+
       carritoCompra.push(productoAñadir)
       mostrarCarrito(productoAñadir);
+    }
       actualizarCarrito();
       carritoLleno();
-      localStorage.setItem("carrito", JSON.stringify(carritoCompra));}
+      localStorage.setItem("carrito", JSON.stringify(carritoCompra));
 ;}
 
 const mostrarCarrito = (productoAñadir) => {
-
   let div = document.createElement('div');
   div.classList.add("infoProducto");
   div.innerHTML = `<p>${productoAñadir.nombre}</p>
                     <p>$${productoAñadir.precio}</p>
-                    <p>Cantidad: ${productoAñadir.cantidad}</p>
-                    <button id= eliminar${productoAñadir.id} class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>`;
+                    <p id=cant${productoAñadir.id}>Cantidad: ${productoAñadir.cantidad}</p>
+                    <button id= "eliminar${productoAñadir.id}" class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>`;
   contenedorCarrito.appendChild(div);
 
   let btnEliminar = document.getElementById(`eliminar${productoAñadir.id}`);
   btnEliminar.addEventListener('click', () => {
+    
+    if (productoAñadir.cantidad == 1){
     btnEliminar.parentElement.remove();
     console.log(btnEliminar)
     carritoCompra = carritoCompra.filter((ele) => ele.id !== productoAñadir.id);
-    if (carritoCompra.length === 0) {
+    
+    if(carritoCompra.length == 0){        
       carritoVacio();
     }
     actualizarCarrito();
     localStorage.setItem("carrito", JSON.stringify(carritoCompra));
-  });
+
+    }else {
+      productoAñadir.cantidad -= 1;
+      document.getElementById(`cant${productoAñadir.id}`).innerHTML = `<p id=cant${productoAñadir.id}> Cantidad: ${productoAñadir.cantidad}</p>`
+      actualizarCarrito();
+      localStorage.setItem("carrito", JSON.stringify(carritoCompra));
+    }
+  })
+  
+  let vaciarCarrito = document.getElementById("vaciar"); 
+    vaciarCarrito.addEventListener('click', ()=>{
+      vaciar()
+    });
 };
+
+const vaciar = ()=>{
+    carritoCompra = [];
+    contenedorCarrito.innerText = "";
+    carritoVacio()
+    actualizarCarrito();
+    localStorage.setItem("carrito", JSON.stringify(carritoCompra));
+}
 
 const actualizarCarrito = () => {
   contadorCarrito.innerText = carritoCompra.length;
+  precioTotal.innerText = "Total :$" + carritoCompra.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
+  
 };
 
 const recupero = () => {
@@ -120,10 +146,7 @@ const recupero = () => {
   }
 };
 
-const modal = () => {
-  let verCarrito = document.getElementById("btn-carrito");
-  let modal = document.querySelector(".carrito");
-  let cerrarCarrito = document.querySelector(".btn-cerrar");
+const modalForma = () => {    
 
   verCarrito.addEventListener("click", (e) => {
     e.preventDefault();
@@ -132,11 +155,11 @@ const modal = () => {
 
   cerrarCarrito.addEventListener("click", (e) => {
     e.preventDefault();
-    modal.classList.remove("mostrar");
+      modal.classList.remove("mostrar")
   });
 };
 
-modal();
+modalForma();
 
 const finalizar = () => {
   boton.addEventListener("click", () => {
@@ -152,9 +175,13 @@ const finalizar = () => {
         Swal.fire(
           "Gracias por su compra!",
           "El Total a Abonar es: $" +
-            carritoCompra.reduce((acc, el) => acc + el.precio, 0),
-          "success"
-        );
+            carritoCompra.reduce((acc, el) => acc + el.precio * el.cantidad, 0),
+          "success",
+          vaciar(),
+          cerrarCarrito = setTimeout(() => {
+            modal.classList.remove("mostrar")     
+            },2500)
+          )
     });
   });
 };
