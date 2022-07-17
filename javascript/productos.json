@@ -58,9 +58,9 @@
   {
     "id": 8,
     "tipo": "Congelado",
-    "nombre": "Filet de merluza",
-    "precio": 750,
-    "imagen": "../imagenes/FiletMerluza.jpg",
+    "nombre": "Mix de Mariscos",
+    "precio": 1300,
+    "imagen": "../imagenes/MixMariscos.jpg",
     "cantidad": 1
   }
 ]

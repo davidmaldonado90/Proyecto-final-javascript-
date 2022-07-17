@@ -10,25 +10,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-//array carrito
-let carritoCompra = [];
+//Variables
+const contenedorProductos = document.getElementById("productos"),
+      contenedorCarrito = document.getElementById("info"),
+      contadorCarrito = document.getElementById("contador"),
+      precioTotal = document.getElementById("total"),
+      boton = document.getElementById("fin"),
+      verCarrito = document.getElementById("btn-carrito"),
+      modal = document.querySelector(".carrito"),
+      selectProducts = document.getElementById("selectProduct");
+let cerrarCarrito = document.querySelector(".btn-cerrar");      
 let products;
 
-//variables
-const contenedorProductos = document.getElementById("productos");
-const contenedorCarrito = document.getElementById("info");
-const contadorCarrito = document.getElementById("contador");
-const precioTotal = document.getElementById("total");
-const boton = document.getElementById("fin");
-const verCarrito = document.getElementById("btn-carrito");
-let cerrarCarrito = document.querySelector(".btn-cerrar");
-const modal = document.querySelector(".carrito");
+
+//Array carrito.
+let carritoCompra = [];
+
+//Filtrar productos.
+
+selectProducts.addEventListener('change', () => {
+  console.log(selectProducts.value);
+  if (selectProducts.value === 'todos') {
+    mostrarProductos()
+    }else{
+      mostrarProductos(products.filter (el => el.tipo === selectProducts.value))
+    }
+})
 
 
+//Funcion para mostrar los productos al abrir la seccion productos.
 
-const mostrarProductos = async () => {
+const mostrarProductos = async (Array) => {
   products = await getData();
-    products.forEach((el) => {
+  contenedorProductos.innerHTML= ""
+    Array = products.forEach((el) => {
       let div = document.createElement("div");
       div.innerHTML = `<div id="card" class="fresco">
                           <img src="${el.imagen}"/>
@@ -37,6 +52,10 @@ const mostrarProductos = async () => {
                           <a id=boton${el.id}>Agregar al Carrito<i class="fa-solid fa-cart-plus"></i></a>
                     </div>`;
       contenedorProductos.appendChild(div);
+
+      
+      //boton para agregar productos al carrito.
+
       let btnCompra = document.getElementById(`boton${el.id}`);
       btnCompra.addEventListener("click", () => {
         agregarCarrito(el.id);
@@ -54,17 +73,20 @@ const mostrarProductos = async () => {
   }
 
  
+//funcion para mostrar cuando el carrito no tiene productos.
 
 const carritoVacio = () => {
   let vacio = document.getElementById("precioProducto");
   vacio.innerHTML = `<p>El carrito esta vacio</p>`;
 };
 
+//funcion para indicar que el carrito tiene productos y borrar el mensaje de carrito vacio.
 const carritoLleno = () => {
   let vacio = document.getElementById("precioProducto");
   vacio.innerHTML = "";
 };
 
+//Funcion para agregar productos al carrito de compras, se verifica que el producto no este repetido y en caso que si, se suma a la cantidad.
 const agregarCarrito = (id) => {
 
       let verificacion = carritoCompra.find(item => item.id === parseInt(id));
@@ -84,6 +106,9 @@ const agregarCarrito = (id) => {
       localStorage.setItem("carrito", JSON.stringify(carritoCompra));
 ;}
 
+
+//Funcion para mostrar el carrito donde se renderiza el producto elegido con nombre, precio y cantidad. 
+
 const mostrarCarrito = (productoAñadir) => {
   let div = document.createElement('div');
   div.classList.add("infoProducto");
@@ -93,6 +118,7 @@ const mostrarCarrito = (productoAñadir) => {
                     <button id= "eliminar${productoAñadir.id}" class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>`;
   contenedorCarrito.appendChild(div);
 
+  //Boton para eliminar cantidad y/o total del producto en el carrito.
   let btnEliminar = document.getElementById(`eliminar${productoAñadir.id}`);
   btnEliminar.addEventListener('click', () => {
     
@@ -101,26 +127,28 @@ const mostrarCarrito = (productoAñadir) => {
     console.log(btnEliminar)
     carritoCompra = carritoCompra.filter((ele) => ele.id !== productoAñadir.id);
     
-    if(carritoCompra.length == 0){        
-      carritoVacio();
-    }
-    actualizarCarrito();
-    localStorage.setItem("carrito", JSON.stringify(carritoCompra));
-
-    }else {
-      productoAñadir.cantidad -= 1;
-      document.getElementById(`cant${productoAñadir.id}`).innerHTML = `<p id=cant${productoAñadir.id}> Cantidad: ${productoAñadir.cantidad}</p>`
+      if(carritoCompra.length === 0){             
+        carritoVacio();
+      }
       actualizarCarrito();
       localStorage.setItem("carrito", JSON.stringify(carritoCompra));
+
+      }else {
+        productoAñadir.cantidad -= 1;
+        document.getElementById(`cant${productoAñadir.id}`).innerHTML = `<p id=cant${productoAñadir.id}> Cantidad: ${productoAñadir.cantidad}</p>`
+        actualizarCarrito();
+        localStorage.setItem("carrito", JSON.stringify(carritoCompra));
     }
   })
-  
-  let vaciarCarrito = document.getElementById("vaciar"); 
+
+// Evento para cuando queremos vaciar el carrito.
+let vaciarCarrito = document.getElementById("vaciar"); 
     vaciarCarrito.addEventListener('click', ()=>{
       vaciar()
     });
 };
 
+//Funcion para vaciar el carrito.
 const vaciar = ()=>{
     carritoCompra = [];
     contenedorCarrito.innerText = "";
@@ -129,12 +157,15 @@ const vaciar = ()=>{
     localStorage.setItem("carrito", JSON.stringify(carritoCompra));
 }
 
+//Funcion para actualizar el carrito, cada vez que se sume productos o se eliminen. 
 const actualizarCarrito = () => {
   contadorCarrito.innerText = carritoCompra.length;
   precioTotal.innerText = "Total :$" + carritoCompra.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
-  
+  if (carritoCompra.length === 0 )precioTotal.innerText = ""; 
 };
 
+
+//Funcion para recuperar informacion del Localstorage.
 const recupero = () => {
   let recuperar = JSON.parse(localStorage.getItem("carrito"));
   if (recuperar) {
@@ -146,6 +177,7 @@ const recupero = () => {
   }
 };
 
+//Funcion para mostrar el modal del carrito de compra.
 const modalForma = () => {    
 
   verCarrito.addEventListener("click", (e) => {
@@ -161,6 +193,7 @@ const modalForma = () => {
 
 modalForma();
 
+//Funcion para finalizar la compra.
 const finalizar = () => {
   boton.addEventListener("click", () => {
     Swal.fire({
