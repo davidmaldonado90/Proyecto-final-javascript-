@@ -581,8 +581,14 @@ i {
 }
 
 
-.select-selected{
-  background-color: #00555d;
+#selectProduct{
+  display: flex;
+  text-align: center;
+  margin-top: 5px;
+  border-radius: 25px;
+  background-color: #e7e2cc;
+  color: #00555d;
+  width: 30em;
 }
 
 /* select-selected:after {

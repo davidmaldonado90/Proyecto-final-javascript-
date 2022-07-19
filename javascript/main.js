@@ -1,7 +1,7 @@
 
 import { getData } from "./getData.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {  
   mostrarProductos();
 
   if (localStorage.getItem("carrito")) {
@@ -29,21 +29,50 @@ let carritoCompra = [];
 //Filtrar productos.
 
 selectProducts.addEventListener('change', () => {
+
   console.log(selectProducts.value);
-  if (selectProducts.value === 'todos') {
-    mostrarProductos()
-    }else{
-      mostrarProductos(products.filter (el => el.tipo === selectProducts.value))
-    }
+
+  if (selectProducts.value === "Todos"){
+  mostrarProductos ();
+  
+  }else{
+    
+  const filtro = products.filter (el => el.tipo === selectProducts.value)
+  contenedorProductos.innerHTML= "";
+    filtro.forEach((el) => {
+      let div = document.createElement("div");
+      div.innerHTML = `<div id="card" class="fresco">
+                          <img src="${el.imagen}"/>
+                          <h2>${el.nombre}</h2>
+                          <p>$${el.precio}</p>
+                          <a id=boton${el.id}>Agregar al Carrito<i class="fa-solid fa-cart-plus"></i></a>
+                    </div>`;
+      contenedorProductos.appendChild(div);
+
+      let btnCompra = document.getElementById(`boton${el.id}`);
+      btnCompra.addEventListener("click", () => {
+        agregarCarrito(el.id);
+        Toastify({
+          text: "El producto se agrego al carrito",
+          duration: 2000,
+          gravity: "top",
+          position: "right",
+          style: {
+            background: "linear-gradient(to right, #e7e2cc,  #00555d)",
+          },
+        }).showToast();
+      });
+    });
+  }
 })
 
 
-//Funcion para mostrar los productos al abrir la seccion productos.
+//Funcion para mostrar los productos .
 
-const mostrarProductos = async (Array) => {
+const mostrarProductos = async () => {
   products = await getData();
-  contenedorProductos.innerHTML= ""
-    Array = products.forEach((el) => {
+  contenedorProductos.innerHTML= "";
+  products.forEach((el) => {
       let div = document.createElement("div");
       div.innerHTML = `<div id="card" class="fresco">
                           <img src="${el.imagen}"/>
@@ -73,6 +102,7 @@ const mostrarProductos = async (Array) => {
   }
 
  
+
 //funcion para mostrar cuando el carrito no tiene productos.
 
 const carritoVacio = () => {

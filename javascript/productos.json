@@ -17,10 +17,10 @@
   },
   {
     "id": 3,
-    "tipo": "Fresco",
-    "nombre": "Filet de Salmon Rosado",
+    "tipo": "Congelado",
+    "nombre": "Langostino Pelado Devenado",
     "precio": 2800,
-    "imagen": "../imagenes/salmon-salvaje.jpg",
+    "imagen": "../imagenes/LangostinoDevenado.jpg",
     "cantidad": 1
   },
   {
@@ -61,6 +61,38 @@
     "nombre": "Mix de Mariscos",
     "precio": 1300,
     "imagen": "../imagenes/MixMariscos.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 9,
+    "tipo": "Congelado",
+    "nombre": "Camaron",
+    "precio": 2300,
+    "imagen": "../imagenes/Camaron.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 10,
+    "tipo": "Rebozado",
+    "nombre": "Filet Rebozado Casero sin Sal",
+    "precio": 1000,
+    "imagen": "../imagenes/CaserasSinSal.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 11,
+    "tipo": "Rebozado",
+    "nombre": "Filet Rebozado a las Finas Hierbas",
+    "precio": 1000,
+    "imagen": "../imagenes/FinasHierbas.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 12,
+    "tipo": "Rebozado",
+    "nombre": "Filet a la Romana",
+    "precio": 1000,
+    "imagen": "../imagenes/Romanas.jpg",
     "cantidad": 1
   }
 ]
